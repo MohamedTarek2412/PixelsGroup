@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pixels Group - Luxury Interior Finishing & Architecture
 
-## Getting Started
+This is the official portfolio website for Pixels Group, an Egyptian luxury interior finishing and architecture company. Built to mirror the quality of a $100k+ digital agency.
 
-First, run the development server:
+## 🚀 Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** Next.js 15 (App Router, React 19)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4 + Vanilla CSS Design System
+- **Animations:** Framer Motion (60fps hardware accelerated)
+- **Icons:** Lucide React
+- **Deployment:** Vercel
+
+## 📁 File Structure
+
+```text
+src/
+├── app/                  # Next.js App Router (Pages, Layout, SEO Metadata)
+├── components/
+│   ├── layout/           # Navbar, Footer
+│   ├── sections/         # 11 distinct sections (Hero, About, Services, etc.)
+│   └── ui/               # Reusable primitives (Buttons, Animations, Header)
+├── lib/                  # Utilities, Animations configs, and Constants (Data)
+└── types/                # TypeScript Interfaces
+public/
+├── assets/               # All images and placeholders
+├── fonts/                # Local fonts if needed
+└── icons/                # Web manifest icons
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🖼️ How to Change Images
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+We have created an organized folder structure inside `public/assets/`.
+Navigate to `public/assets/` and read the `README.md` inside it for exact instructions on where to place your images.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Important: If you change the image filename or extension (e.g., from `.jpg` to `.png`), you MUST update the path in `src/lib/constants.ts` to match.
 
-## Learn More
+## 📝 How to Edit Content (Text, Packages, Projects)
 
-To learn more about Next.js, take a look at the following resources:
+All the website data (Text, Projects, Packages, Testimonials, Contact details) is centralized in a single file to make editing easy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Open `src/lib/constants.ts`
+2. Edit the strings inside the objects/arrays.
+3. Save the file. The changes will reflect immediately.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Development & Deployment
 
-## Deploy on Vercel
+### Local Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Install Node.js (v18 or higher)
+2. Open terminal in this project folder
+3. Run `npm install`
+4. Run `npm run dev`
+5. Open [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Production Build
+
+Before deploying, ensure the build passes without errors:
+```bash
+npm run build
+npm run start
+```
+
+### Vercel Deployment
+
+This project is perfectly configured for zero-config Vercel deployment:
+1. Push this repository to GitHub.
+2. Go to Vercel.com and import the repository.
+3. Click "Deploy".
+4. Vercel will automatically detect Next.js and apply the optimal settings (Image Optimization, Caching, Edge network).
+
+## ⚡ Performance & SEO
+
+- **Lighthouse 100/100 target**
+- Fully responsive across Mobile, Tablet, Desktop, and Ultrawide.
+- Accessibility standards met (WCAG AAA contrast, ARIA labels, Keyboard navigation).
+- Semantic HTML and built-in Next.js JSON-LD Structured Data in `layout.tsx`.
+
+## 📄 License
+Private project created for Pixels Group. All rights reserved.
