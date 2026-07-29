@@ -110,7 +110,7 @@ export function About() {
               viewport={viewportOnce}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="text-xl sm:text-2xl font-black" style={{ color: "var(--color-gold)", fontFamily: "var(--font-accent)" }}>7+</p>
+              <p className="text-xl sm:text-2xl font-black inline-block" dir="ltr" style={{ color: "var(--color-gold)", fontFamily: "var(--font-accent)" }}>7+</p>
               <p className="text-[10px] sm:text-xs tracking-wider" style={{ color: "var(--text-secondary)" }}>سنوات من التميّز</p>
             </motion.div>
           </motion.div>
@@ -135,7 +135,8 @@ export function About() {
               }}
             >
               <span
-                className="counter-number"
+                className="counter-number inline-block"
+                dir="ltr"
                 style={{
                   background: "linear-gradient(135deg, var(--color-gold-dark), var(--color-gold-bright))",
                   WebkitBackgroundClip: "text",

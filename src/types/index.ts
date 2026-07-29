@@ -39,11 +39,11 @@ export interface Project {
   location: string;
   type: string;
   area?: string;
-  year: string;
-  coverImage: string;
+  year?: string;
+  coverImage?: string;
   images: string[];
-  description: string;
-  category: "residential" | "commercial" | "administrative";
+  description?: string;
+  category?: "residential" | "commercial" | "administrative";
 }
 
 export interface ProcessStep {
