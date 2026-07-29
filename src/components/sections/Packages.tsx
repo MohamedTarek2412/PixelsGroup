@@ -69,7 +69,7 @@ export function Packages() {
                         fontFamily: "var(--font-primary)",
                       }}
                     >
-                      {pkg.name}
+                      {pkg.nameAr}
                     </h3>
                   {pkg.id === "silver" && <ShieldCheck size={20} style={{ color: "var(--color-dark-gray)" }} />}
                   {pkg.id === "gold" && <Star size={20} style={{ color: "var(--color-gold)" }} />}
@@ -77,7 +77,7 @@ export function Packages() {
                   {pkg.id === "vip" && <Star size={20} style={{ color: "var(--color-gold-bright)" }} />}
                 </div>
 
-                <div className="flex items-end gap-1">
+                <div className="flex items-baseline gap-2" dir="ltr">
                   <span
                     className="text-2xl font-black leading-none"
                     style={{ color: "var(--color-white)", fontFamily: "var(--font-accent)" }}
@@ -85,8 +85,9 @@ export function Packages() {
                     {pkg.price}
                   </span>
                   <span
-                    className="text-xs pb-1"
+                    className="text-xs"
                     style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
+                    dir="rtl"
                   >
                     {pkg.priceNote}
                   </span>
@@ -117,7 +118,7 @@ export function Packages() {
                                 className="text-2xl font-black tracking-wide uppercase"
                                 style={{ color: "var(--color-gold)", fontFamily: "var(--font-primary)" }}
                               >
-                                {pkg.name}
+                                {pkg.nameAr}
                               </h2>
                             {pkg.badge && (
                               <span
@@ -247,7 +248,7 @@ export function Packages() {
                           fontFamily: "var(--font-primary)",
                         }}
                       >
-                        {pkg.name}
+                        {pkg.nameAr}
                       </h3>
                       {pkg.badge && (
                         <span
@@ -262,11 +263,11 @@ export function Packages() {
                         </span>
                       )}
                     </div>
-                    <div className="flex flex-wrap items-end gap-1 mt-2">
-                      <span className="text-lg font-black leading-relaxed" style={{ color: "var(--color-white)", fontFamily: "var(--font-accent)" }}>
+                    <div className="flex items-baseline gap-2 mt-2" dir="ltr">
+                      <span className="text-lg font-black leading-none" style={{ color: "var(--color-white)", fontFamily: "var(--font-accent)" }}>
                         {pkg.price}
                       </span>
-                      <span className="text-[10px] pb-0.5" style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}>
+                      <span className="text-[10px]" style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }} dir="rtl">
                         {pkg.priceNote}
                       </span>
                     </div>

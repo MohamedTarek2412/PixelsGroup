@@ -126,27 +126,28 @@ export function About() {
             <motion.div
               key={stat.label}
               variants={fadeInUp}
-              className="flex flex-col items-center text-center px-6 py-10 sm:px-8 sm:py-12 lg:p-12 rounded-sm"
+              className="flex flex-col items-center text-center px-4 py-10 sm:px-6 sm:py-12 rounded-sm"
               style={{
                 background: "rgba(208,151,52,0.04)",
                 border: "1px solid rgba(208,151,52,0.1)",
               }}
             >
               <span
-                className="counter-number inline-block"
+                className="inline-block text-4xl sm:text-5xl lg:text-6xl font-black leading-none"
                 dir="ltr"
                 style={{
                   background: "linear-gradient(135deg, var(--color-gold-dark), var(--color-gold-bright))",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
+                  fontFamily: "var(--font-accent)",
                 }}
               >
                 {stat.number}
               </span>
               <span
-                className="text-sm sm:text-base font-semibold mt-4 leading-relaxed"
-                style={{ color: "var(--text-secondary)" }}
+                className="text-sm sm:text-base font-semibold mt-5 leading-relaxed block"
+                style={{ color: "var(--text-secondary)", fontFamily: "var(--font-primary)" }}
               >
                 {stat.label}
               </span>
