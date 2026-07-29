@@ -128,7 +128,7 @@ export function About() {
             <motion.div
               key={stat.label}
               variants={fadeInUp}
-              className="flex flex-col items-center text-center p-6 sm:p-8 lg:p-10 rounded-sm"
+              className="flex flex-col items-center text-center px-6 py-10 sm:px-8 sm:py-12 lg:p-12 rounded-sm"
               style={{
                 background: "rgba(208,151,52,0.04)",
                 border: "1px solid rgba(208,151,52,0.1)",
@@ -172,7 +172,7 @@ export function About() {
             <ScrollReveal
               key={item.tag}
               delay={i * 0.15}
-              className="p-8 sm:p-10 lg:p-12 rounded-sm card-gold-top"
+              className="px-8 py-12 sm:p-12 lg:p-16 rounded-sm card-gold-top"
               style={{
                 background: "rgba(26,27,28,0.8)",
                 border: "1px solid rgba(235,235,234,0.07)",
