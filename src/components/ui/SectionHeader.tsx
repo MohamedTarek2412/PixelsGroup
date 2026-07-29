@@ -33,15 +33,15 @@ export function SectionHeader({
   const isInView = useInView(ref, viewportOnce);
 
   const alignClass = {
-    left: "items-start text-left",
+    left: "items-end text-left", // In RTL, items-end is left
     center: "items-center text-center",
-    right: "items-end text-right",
+    right: "items-start text-right", // In RTL, items-start is right
   }[align];
 
   const dividerClass = {
-    left: "",
+    left: "ms-auto", // margin-start auto pushes to the left in RTL
     center: "mx-auto",
-    right: "ml-auto",
+    right: "me-auto", // margin-end auto pushes to the right in RTL
   }[align];
 
   return (

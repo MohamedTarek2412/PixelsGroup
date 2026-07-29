@@ -8,6 +8,8 @@ import { Services } from "@/components/sections/Services";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Packages } from "@/components/sections/Packages";
 import { CostPlus } from "@/components/sections/CostPlus";
+import { PaymentSystem } from "@/components/sections/PaymentSystem";
+import { ExecutiveEstimation } from "@/components/sections/ExecutiveEstimation";
 import { Process } from "@/components/sections/Process";
 import { Projects } from "@/components/sections/Projects";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -32,10 +34,16 @@ export default function HomePage() {
       {/* 5 — Packages */}
       <Packages />
 
-      {/* 6 — Cost Plus */}
+      {/* 6 — Payment System */}
+      <PaymentSystem />
+
+      {/* 7 — Cost Plus */}
       <CostPlus />
 
-      {/* 7 — Execution Process */}
+      {/* 8 — Executive Estimation */}
+      <ExecutiveEstimation />
+
+      {/* 9 — Execution Process */}
       <Process />
 
       {/* 8 — Projects */}

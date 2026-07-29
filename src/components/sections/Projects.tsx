@@ -1,7 +1,7 @@
 "use client";
 
 // ============================================================
-// Projects Section — Gallery of 6 projects with lightbox
+// Projects Section — Gallery of projects with lightbox
 // ============================================================
 
 import { useState } from "react";
@@ -13,26 +13,11 @@ import { PROJECTS } from "@/lib/constants";
 import { staggerContainer, fadeInUp, viewportOnce } from "@/lib/animations";
 import type { Project } from "@/types";
 
-type Category = "all" | "residential" | "commercial" | "administrative";
-
-const CATEGORIES: { label: string; value: Category }[] = [
-  { label: "All Projects", value: "all" },
-  { label: "Residential", value: "residential" },
-  { label: "Commercial", value: "commercial" },
-  { label: "Administrative", value: "administrative" },
-];
-
 export function Projects() {
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [lightbox, setLightbox] = useState<{
     project: Project;
     imageIndex: number;
   } | null>(null);
-
-  const filtered =
-    activeCategory === "all"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeCategory);
 
   const openLightbox = (project: Project, imageIndex = 0) => {
     setLightbox({ project, imageIndex });
@@ -46,14 +31,16 @@ export function Projects() {
 
   const prevImage = () => {
     if (!lightbox) return;
-    const images = [lightbox.project.coverImage, ...lightbox.project.images];
+    const images = lightbox.project.images;
+    if (!images || images.length === 0) return;
     const prev = (lightbox.imageIndex - 1 + images.length) % images.length;
     setLightbox({ ...lightbox, imageIndex: prev });
   };
 
   const nextImage = () => {
     if (!lightbox) return;
-    const images = [lightbox.project.coverImage, ...lightbox.project.images];
+    const images = lightbox.project.images;
+    if (!images || images.length === 0) return;
     const next = (lightbox.imageIndex + 1) % images.length;
     setLightbox({ ...lightbox, imageIndex: next });
   };
@@ -67,48 +54,12 @@ export function Projects() {
       <div className="container-brand">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
           <SectionHeader
-            overline="Our Portfolio"
-            title="Selected"
-            titleHighlight="Projects"
-            description="A curated selection of spaces we've transformed — each one a testament to our engineering precision and design excellence."
-            align="left"
+            overline="معرض الأعمال"
+            title="مشاريعنا"
+            titleHighlight="المتميزة"
+            description="مجموعة مختارة من مشاريعنا التي تجسد التزامنا بالتصميم الفاخر والتنفيذ الهندسي الدقيق."
+            align="center"
           />
-        </div>
-
-        {/* Category Filter */}
-        <div
-          className="flex flex-wrap items-center gap-3 mb-10"
-          role="tablist"
-          aria-label="Project categories"
-        >
-          {CATEGORIES.map(({ label, value }) => (
-            <motion.button
-              key={value}
-              onClick={() => setActiveCategory(value)}
-              role="tab"
-              aria-selected={activeCategory === value}
-              className="px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300"
-              style={{
-                fontFamily: "var(--font-accent)",
-                background:
-                  activeCategory === value
-                    ? "var(--color-gold)"
-                    : "rgba(235,235,234,0.05)",
-                color:
-                  activeCategory === value
-                    ? "var(--color-black)"
-                    : "var(--text-secondary)",
-                border:
-                  activeCategory === value
-                    ? "1px solid transparent"
-                    : "1px solid rgba(235,235,234,0.1)",
-              }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {label}
-            </motion.button>
-          ))}
         </div>
 
         {/* Projects Grid */}
@@ -117,7 +68,9 @@ export function Projects() {
           className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
+            {PROJECTS.map((project, i) => {
+              const cover = project.coverImage || (project.images && project.images[0]);
+              return (
               <motion.article
                 key={project.id}
                 layout
@@ -140,31 +93,24 @@ export function Projects() {
               >
                 {/* Cover Image */}
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <div
-                    className="w-full h-full flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, 
-                        hsl(${i * 40 + 30}, 15%, 12%) 0%, 
-                        hsl(${i * 40 + 45}, 20%, 18%) 100%)`,
-                      minHeight: "240px",
-                    }}
-                  >
-                    {/* Placeholder — replace with actual project images */}
-                    <div className="text-center">
-                      <div
-                        className="text-3xl font-black mb-2 text-gradient-gold"
-                        style={{ fontFamily: "var(--font-accent)" }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </div>
-                      <p
-                        className="text-[10px] tracking-widest uppercase"
-                        style={{ color: "var(--color-dark-gray)" }}
-                      >
-                        {project.coverImage.split("/").pop()?.replace(".jpg", "")}
-                      </p>
-                    </div>
-                  </div>
+                  {cover ? (
+                    <Image
+                      src={cover}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full flex items-center justify-center"
+                      style={{
+                        background: `linear-gradient(135deg, 
+                          hsl(${i * 40 + 30}, 15%, 12%) 0%, 
+                          hsl(${i * 40 + 45}, 20%, 18%) 100%)`,
+                      }}
+                    />
+                  )}
 
                   {/* Hover overlay */}
                   <div
@@ -189,6 +135,7 @@ export function Projects() {
                       >
                         {project.title}
                       </h3>
+                      {project.location && (
                       <div className="flex items-center gap-2">
                         <MapPin
                           size={11}
@@ -202,24 +149,27 @@ export function Projects() {
                           {project.location}
                         </span>
                       </div>
+                      )}
                     </div>
-                    <span className="badge-gold shrink-0">{project.year}</span>
+                    {project.year && <span className="badge-gold shrink-0">{project.year}</span>}
                   </div>
 
                   <div className="flex items-center gap-4 mt-3 pt-3"
                     style={{ borderTop: "1px solid rgba(235,235,234,0.06)" }}>
+                    {project.type && (
                     <div>
                       <p className="text-[10px] font-semibold tracking-wider uppercase mb-0.5"
                         style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}>
-                        Type
+                        النوع
                       </p>
                       <p className="text-xs" style={{ color: "var(--text-secondary)" }}>{project.type}</p>
                     </div>
+                    )}
                     {project.area && (
                       <div>
                         <p className="text-[10px] font-semibold tracking-wider uppercase mb-0.5"
                           style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}>
-                          Area
+                          المساحة
                         </p>
                         <p className="text-xs" style={{ color: "var(--text-secondary)" }}>{project.area}</p>
                       </div>
@@ -227,14 +177,14 @@ export function Projects() {
                   </div>
                 </div>
               </motion.article>
-            ))}
+            )})}
           </AnimatePresence>
         </motion.div>
       </div>
 
       {/* Lightbox */}
       <AnimatePresence>
-        {lightbox && (
+        {lightbox && lightbox.project.images && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -275,23 +225,19 @@ export function Projects() {
 
               {/* Image area */}
               <div
-                className="relative aspect-video flex items-center justify-center"
-                style={{ background: "rgba(20,21,22,0.9)", minHeight: "300px" }}
+                className="relative flex items-center justify-center bg-black/90 w-full h-[60vh] md:h-[70vh] lg:h-[80vh]"
               >
-                <div className="text-center">
-                  <p
-                    className="text-xs tracking-widest uppercase"
-                    style={{ color: "var(--color-dark-gray)" }}
-                  >
-                    Image {lightbox.imageIndex + 1} of{" "}
-                    {[lightbox.project.coverImage, ...lightbox.project.images].length}
-                  </p>
-                  <p className="text-sm mt-2" style={{ color: "var(--color-white)" }}>
-                    {lightbox.project.title}
-                  </p>
-                  <p className="text-xs mt-1" style={{ color: "var(--color-gold)" }}>
-                    Replace placeholder images with actual project photos
-                  </p>
+                <Image
+                  src={lightbox.project.images[lightbox.imageIndex]}
+                  alt={`${lightbox.project.title} — Image ${lightbox.imageIndex + 1}`}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                  priority
+                />
+                
+                <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full text-xs tracking-widest uppercase" style={{ background: "rgba(0,0,0,0.5)", color: "var(--color-white)", backdropFilter: "blur(4px)" }}>
+                  {lightbox.imageIndex + 1} / {lightbox.project.images.length}
                 </div>
               </div>
 
@@ -333,15 +279,6 @@ export function Projects() {
                   >
                     {lightbox.project.title}
                   </h2>
-                  <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                    {lightbox.project.description}
-                  </p>
-                </div>
-                <div className="flex flex-col items-end gap-1 shrink-0">
-                  <span className="badge-gold">{lightbox.project.type}</span>
-                  <span className="text-xs" style={{ color: "var(--color-dark-gray)" }}>
-                    {lightbox.project.location}
-                  </span>
                 </div>
               </div>
             </motion.div>

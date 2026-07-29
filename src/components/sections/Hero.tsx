@@ -1,17 +1,11 @@
 "use client";
 
-// ============================================================
-// Hero Section — Cinematic full-screen opening
-// ============================================================
-
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Phone, MessageCircle } from "lucide-react";
 import { COMPANY_NAME, CONTACT } from "@/lib/constants";
 import { whatsappLink } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
-
-const HEADLINE_WORDS = ["Engineering", "Luxury", "Interiors"];
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -31,7 +25,7 @@ export function Hero() {
       ref={containerRef}
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       style={{ background: "var(--color-black)" }}
-      aria-label="Hero section"
+      aria-label="القسم الرئيسي"
     >
       {/* Animated Background Grid */}
       <div
@@ -94,11 +88,7 @@ export function Hero() {
       )}
 
       {/* Horizontal accent lines */}
-      <div
-        className="absolute left-0 right-0 pointer-events-none"
-        style={{ top: "20%" }}
-        aria-hidden="true"
-      >
+      <div className="absolute inset-x-0 pointer-events-none" style={{ top: "20%" }} aria-hidden="true">
         <motion.div
           className="glow-line opacity-20"
           initial={{ scaleX: 0 }}
@@ -106,11 +96,7 @@ export function Hero() {
           transition={{ duration: 1.5, delay: 1, ease: [0.16, 1, 0.3, 1] }}
         />
       </div>
-      <div
-        className="absolute left-0 right-0 pointer-events-none"
-        style={{ bottom: "20%" }}
-        aria-hidden="true"
-      >
+      <div className="absolute inset-x-0 pointer-events-none" style={{ bottom: "20%" }} aria-hidden="true">
         <motion.div
           className="glow-line opacity-10"
           initial={{ scaleX: 0 }}
@@ -118,16 +104,6 @@ export function Hero() {
           transition={{ duration: 1.5, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
         />
       </div>
-
-      {/* Hero Image placeholder overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(17,18,19,0.7) 0%, rgba(17,18,19,0.3) 50%, rgba(17,18,19,0.85) 100%)",
-        }}
-      />
 
       {/* Main Content */}
       <motion.div
@@ -142,55 +118,50 @@ export function Hero() {
           className="flex items-center gap-4"
         >
           <div className="divider-gold" style={{ margin: 0 }} />
-          <span className="overline">{COMPANY_NAME} — Cairo, Egypt</span>
+          <span className="overline">PIXELS GROUP — القاهرة، مصر</span>
           <div className="divider-gold" style={{ margin: 0 }} />
         </motion.div>
 
-        {/* Main Headline */}
-        <h1 className="overflow-hidden" aria-label="Engineering Luxury Interiors">
-          <span className="sr-only">Engineering Luxury Interiors</span>
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2" aria-hidden="true">
-            {HEADLINE_WORDS.map((word, i) => (
-              <div key={word} className="overflow-hidden">
-                <motion.span
-                  className={`block ${i === 1 ? "text-gradient-gold" : ""}`}
-                  initial={{ y: "110%", opacity: 0 }}
-                  animate={{ y: "0%", opacity: 1 }}
-                  transition={{
-                    duration: 0.9,
-                    delay: 0.5 + i * 0.12,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {word}
-                </motion.span>
-              </div>
-            ))}
-          </div>
-        </h1>
+        {/* Main Headline — Arabic */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
+          style={{ fontFamily: "var(--font-cairo, var(--font-primary))" }}
+        >
+          <span className="block" style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", fontWeight: 800, lineHeight: 1.2 }}>
+            نُهندس لك
+          </span>
+          <span
+            className="block text-gradient-gold"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", fontWeight: 800, lineHeight: 1.2 }}
+          >
+            مساحتك المثالية
+          </span>
+        </motion.h1>
 
         {/* Sub-headline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-xl text-lg leading-relaxed"
-          style={{ color: "var(--text-secondary)" }}
+          className="max-w-2xl text-xl leading-relaxed"
+          style={{ color: "var(--text-secondary)", fontFamily: "var(--font-cairo, var(--font-primary))" }}
         >
-          Premium interior finishing, architectural design, and engineering supervision
-          — delivered with precision, transparency, and uncompromising quality.
+          تشطيبات داخلية فاخرة · تصميم معماري · إشراف هندسي — بدقة وشفافية وجودة لا تقبل المساومة
         </motion.p>
 
-        {/* Arabic sub-text */}
+        {/* English tagline */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
-          className="text-sm"
-          style={{ color: "var(--color-dark-gray)", direction: "rtl", fontFamily: "var(--font-primary)" }}
-          lang="ar"
+          className="text-sm tracking-widest uppercase"
+          style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+          dir="ltr"
         >
-          تشطيبات داخلية فاخرة · تصميم معماري · إشراف هندسي
+          ENGINEERING TOMORROW
         </motion.p>
 
         {/* CTA Buttons */}
@@ -207,7 +178,7 @@ export function Hero() {
             showArrow
             id="hero-cta-primary"
           >
-            Start Your Project
+            ابدأ مشروعك
           </Button>
           <Button
             href="#projects"
@@ -215,7 +186,7 @@ export function Hero() {
             size="lg"
             id="hero-cta-projects"
           >
-            View Our Work
+            شاهد أعمالنا
           </Button>
         </motion.div>
 
@@ -225,12 +196,13 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 1.4 }}
           className="flex items-center gap-6 mt-4"
+          dir="ltr"
         >
           <a
             href={`tel:${CONTACT.phones[0]}`}
             className="flex items-center gap-2 text-xs font-medium tracking-wider uppercase transition-colors hover:text-[var(--color-gold)]"
             style={{ color: "var(--text-secondary)", fontFamily: "var(--font-accent)" }}
-            aria-label={`Call us: ${CONTACT.phones[0]}`}
+            aria-label={`اتصل بنا: ${CONTACT.phones[0]}`}
           >
             <Phone size={12} style={{ color: "var(--color-gold)" }} />
             {CONTACT.phones[0]}
@@ -242,7 +214,7 @@ export function Hero() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs font-medium tracking-wider uppercase transition-colors hover:text-[var(--color-gold)]"
             style={{ color: "var(--text-secondary)", fontFamily: "var(--font-accent)" }}
-            aria-label={`WhatsApp: ${CONTACT.whatsapp[0]}`}
+            aria-label={`واتساب: ${CONTACT.whatsapp[0]}`}
           >
             <MessageCircle size={12} style={{ color: "var(--color-gold)" }} />
             WhatsApp
@@ -270,7 +242,7 @@ export function Hero() {
 
       {/* Corner decorations */}
       <div
-        className="absolute top-24 left-8 w-20 h-20 pointer-events-none"
+        className="absolute top-24 start-8 w-20 h-20 pointer-events-none"
         aria-hidden="true"
         style={{
           borderTop: "1px solid rgba(208,151,52,0.2)",
@@ -278,7 +250,7 @@ export function Hero() {
         }}
       />
       <div
-        className="absolute top-24 right-8 w-20 h-20 pointer-events-none"
+        className="absolute top-24 end-8 w-20 h-20 pointer-events-none"
         aria-hidden="true"
         style={{
           borderTop: "1px solid rgba(208,151,52,0.2)",

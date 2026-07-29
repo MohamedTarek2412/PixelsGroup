@@ -1,9 +1,5 @@
 "use client";
 
-// ============================================================
-// About Section — Company story, vision, mission, and stats
-// ============================================================
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -23,7 +19,7 @@ export function About() {
     >
       {/* Subtle background text */}
       <div
-        className="absolute -right-16 top-1/2 -translate-y-1/2 text-[200px] font-black leading-none pointer-events-none select-none hidden xl:block"
+        className="absolute -end-16 top-1/2 -translate-y-1/2 text-[200px] font-black leading-none pointer-events-none select-none hidden xl:block"
         style={{
           color: "rgba(208,151,52,0.025)",
           fontFamily: "var(--font-accent)",
@@ -36,19 +32,19 @@ export function About() {
       <div className="container-brand">
         {/* Top Grid: Header + Story */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-start mb-24">
-          {/* Left: Header */}
+          {/* Right: Header (RTL = this appears on the right) */}
           <motion.div
-            variants={fadeInLeft}
+            variants={fadeInRight}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
             <SectionHeader
-              overline="Who We Are"
-              title="Built on Engineering."
-              titleHighlight="Driven by Excellence."
-              description="Pixels Group is a premier interior finishing, design, and engineering supervision company. We deliver integrated solutions tailored to every need and budget — backed by a specialized engineering team and an unwavering commitment to quality."
-              align="left"
+              overline="من نحن"
+              title="أُسّسنا على الهندسة."
+              titleHighlight="نسعى للتميّز."
+              description="بيكسلز جروب شركة رائدة في التشطيبات الداخلية والتصميم المعماري والإشراف الهندسي. نقدّم حلولاً متكاملة تناسب كل احتياج وميزانية — بفريق هندسي متخصص والتزام راسخ بالجودة."
+              align="right"
             />
 
             <motion.div
@@ -63,30 +59,26 @@ export function About() {
               viewport={viewportOnce}
             >
               <span
-                className="text-sm leading-relaxed"
+                className="text-base leading-relaxed"
                 style={{
                   color: "var(--text-secondary)",
-                  direction: "rtl",
-                  fontFamily: "var(--font-primary)",
                   display: "block",
                 }}
-                lang="ar"
               >
                 {COMPANY_DESCRIPTION_AR}
               </span>
             </motion.div>
           </motion.div>
 
-          {/* Right: Image */}
+          {/* Left: Image */}
           <motion.div
             className="relative"
-            variants={fadeInRight}
+            variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
             <div className="relative overflow-hidden rounded-sm aspect-[4/5]">
-              {/* Placeholder for /assets/banners/about.jpg */}
               <div
                 className="w-full h-full flex items-center justify-center"
                 style={{
@@ -102,30 +94,30 @@ export function About() {
                     PG
                   </div>
                   <p className="text-xs tracking-widest uppercase" style={{ color: "var(--color-dark-gray)" }}>
-                    Replace with about.jpg
+                    Pixels Group
                   </p>
                 </div>
               </div>
               {/* Gold corner accents */}
               <div
-                className="absolute top-4 left-4 w-12 h-12 pointer-events-none"
+                className="absolute top-4 end-4 w-12 h-12 pointer-events-none"
                 style={{
                   borderTop: "2px solid var(--color-gold)",
-                  borderLeft: "2px solid var(--color-gold)",
+                  borderRight: "2px solid var(--color-gold)",
                 }}
               />
               <div
-                className="absolute bottom-4 right-4 w-12 h-12 pointer-events-none"
+                className="absolute bottom-4 start-4 w-12 h-12 pointer-events-none"
                 style={{
                   borderBottom: "2px solid var(--color-gold)",
-                  borderRight: "2px solid var(--color-gold)",
+                  borderLeft: "2px solid var(--color-gold)",
                 }}
               />
             </div>
 
             {/* Floating badge */}
             <motion.div
-              className="absolute -bottom-6 -left-6 p-5 rounded-sm"
+              className="absolute -bottom-6 -end-6 p-5 rounded-sm"
               style={{
                 background: "var(--color-black)",
                 border: "1px solid rgba(208,151,52,0.3)",
@@ -137,7 +129,7 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <p className="text-2xl font-black" style={{ color: "var(--color-gold)", fontFamily: "var(--font-accent)" }}>7+</p>
-              <p className="text-xs tracking-wider uppercase" style={{ color: "var(--text-secondary)" }}>Years of Excellence</p>
+              <p className="text-xs tracking-wider" style={{ color: "var(--text-secondary)" }}>سنوات من التميّز</p>
             </motion.div>
           </motion.div>
         </div>
@@ -150,7 +142,7 @@ export function About() {
           animate={statsInView ? "visible" : "hidden"}
           className="grid grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {STATS.map((stat, i) => (
+          {STATS.map((stat) => (
             <motion.div
               key={stat.label}
               variants={fadeInUp}
@@ -172,8 +164,8 @@ export function About() {
                 {stat.number}
               </span>
               <span
-                className="text-xs font-medium tracking-[0.12em] uppercase mt-2"
-                style={{ color: "var(--text-secondary)", fontFamily: "var(--font-accent)" }}
+                className="text-sm font-medium mt-2"
+                style={{ color: "var(--text-secondary)" }}
               >
                 {stat.label}
               </span>
@@ -185,17 +177,13 @@ export function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-24">
           {[
             {
-              tag: "Our Vision",
-              tagAr: "رؤيتنا",
-              text: "To become one of the leading companies in interior finishing and design through quality, innovation, and unwavering commitment to excellence.",
-              textAr: "أن نكون من الشركات الرائدة في مجال التشطيبات والتصميم الداخلي من خلال الجودة، والابتكار، والالتزام.",
+              tag: "رؤيتنا",
+              text: "أن نكون من الشركات الرائدة في مجال التشطيبات والتصميم الداخلي من خلال الجودة، والابتكار، والالتزام.",
               icon: "◈",
             },
             {
-              tag: "Our Mission",
-              tagAr: "رسالتنا",
-              text: "To deliver a professional finishing experience built on transparency, quality, and on-time commitment — exceeding expectations at every phase.",
-              textAr: "تقديم تجربة تشطيب احترافية تعتمد على الشفافية، والجودة، والالتزام بالمواعيد.",
+              tag: "رسالتنا",
+              text: "تقديم تجربة تشطيب احترافية تعتمد على الشفافية، والجودة، والالتزام بالمواعيد — نتجاوز التوقعات في كل مرحلة.",
               icon: "◇",
             },
           ].map((item, i) => (
@@ -217,29 +205,9 @@ export function About() {
                   {item.icon}
                 </span>
                 <div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="badge-gold">{item.tag}</span>
-                    <span
-                      className="text-xs"
-                      style={{ color: "var(--color-dark-gray)" }}
-                      lang="ar"
-                    >
-                      {item.tagAr}
-                    </span>
-                  </div>
-                  <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
+                  <span className="badge-gold mb-4 inline-block">{item.tag}</span>
+                  <p className="text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
                     {item.text}
-                  </p>
-                  <p
-                    className="text-sm"
-                    style={{
-                      color: "var(--color-dark-gray)",
-                      direction: "rtl",
-                      fontFamily: "var(--font-primary)",
-                    }}
-                    lang="ar"
-                  >
-                    {item.textAr}
                   </p>
                 </div>
               </div>

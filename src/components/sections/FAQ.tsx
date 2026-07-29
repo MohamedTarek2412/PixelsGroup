@@ -1,9 +1,5 @@
 "use client";
 
-// ============================================================
-// FAQ Section — Accordion with smooth animations
-// ============================================================
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
@@ -27,14 +23,14 @@ export function FAQ() {
     >
       <div className="container-brand">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-          {/* Left */}
+          {/* Right (RTL): Section Header */}
           <div className="lg:col-span-2">
             <SectionHeader
-              overline="Got Questions?"
-              title="Frequently"
-              titleHighlight="Asked"
-              description="Everything you need to know before starting your project. Can't find your answer? Contact us directly."
-              align="left"
+              overline="لديك أسئلة؟"
+              title="الأسئلة"
+              titleHighlight="الشائعة"
+              description="كل ما تحتاج معرفته قبل البدء في مشروعك. لم تجد إجابتك؟ تواصل معنا مباشرة وسنسعد بالرد عليك."
+              align="right"
             />
             <motion.div
               className="mt-10 p-6 rounded-sm"
@@ -51,19 +47,19 @@ export function FAQ() {
                 className="text-sm leading-relaxed mb-4"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Still have questions? Our team is available 7 days a week.
+                لا يزال لديك أسئلة؟ فريقنا متاح للرد على استفساراتك طوال أيام الأسبوع.
               </p>
               <a
                 href="#contact"
-                className="text-sm font-semibold tracking-wider uppercase transition-colors hover:text-[var(--color-gold-light)]"
-                style={{ color: "var(--color-gold)", fontFamily: "var(--font-accent)" }}
+                className="text-sm font-semibold tracking-wider transition-colors hover:text-[var(--color-gold-light)]"
+                style={{ color: "var(--color-gold)", fontFamily: "var(--font-primary)" }}
               >
-                Contact Us →
+                تواصل معنا ←
               </a>
             </motion.div>
           </div>
 
-          {/* Right — Accordion */}
+          {/* Left (RTL): Accordion */}
           <motion.div
             className="lg:col-span-3"
             variants={staggerContainer}
@@ -86,13 +82,13 @@ export function FAQ() {
                     <dt>
                       <button
                         onClick={() => toggle(i)}
-                        className="flex items-center justify-between w-full py-6 text-left bg-transparent border-none cursor-pointer group"
+                        className="flex items-center justify-between w-full py-6 text-right bg-transparent border-none cursor-pointer group"
                         aria-expanded={isOpen}
                         id={`faq-question-${i}`}
                         aria-controls={`faq-answer-${i}`}
                       >
                         <span
-                          className="text-sm font-semibold pr-4 leading-snug transition-colors duration-200"
+                          className="text-sm font-semibold pe-4 leading-snug transition-colors duration-200"
                           style={{
                             color: isOpen
                               ? "var(--color-gold-light)"
@@ -100,10 +96,10 @@ export function FAQ() {
                             fontFamily: "var(--font-primary)",
                           }}
                         >
-                          {item.question}
+                          {item.questionAr}
                         </span>
                         <motion.div
-                          className="shrink-0 w-7 h-7 rounded-sm flex items-center justify-center"
+                          className="shrink-0 w-7 h-7 rounded-sm flex items-center justify-center me-auto"
                           style={{
                             background: isOpen
                               ? "rgba(208,151,52,0.15)"
@@ -156,7 +152,7 @@ export function FAQ() {
                             className="pb-6 leading-relaxed text-sm"
                             style={{ color: "var(--text-secondary)" }}
                           >
-                            {item.answer}
+                            {item.answerAr}
                           </p>
                         </motion.dd>
                       )}

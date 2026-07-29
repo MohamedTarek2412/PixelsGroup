@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Manrope, Space_Grotesk, Cairo } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -19,6 +19,13 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk-loaded",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const cairo = Cairo({
+  subsets: ["arabic"],
+  variable: "--font-cairo",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 // ── Metadata ──────────────────────────────────────────────
@@ -168,9 +175,9 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
-      dir="ltr"
-      className={`${manrope.variable} ${spaceGrotesk.variable}`}
+      lang="ar"
+      dir="rtl"
+      className={`${manrope.variable} ${spaceGrotesk.variable} ${cairo.variable}`}
     >
       <head>
         {/* Preconnect to Google Fonts */}
@@ -185,7 +192,7 @@ export default function RootLayout({
       </head>
       <body
         style={{
-          fontFamily: "var(--font-manrope-loaded, var(--font-primary))",
+          fontFamily: "var(--font-cairo, var(--font-primary))",
         }}
       >
         {/* Premium custom cursor — desktop only */}

@@ -12,6 +12,12 @@ export interface Service {
   features: string[];
 }
 
+export interface PackageItem {
+  category: string;
+  categoryAr: string;
+  items: string[];
+}
+
 export interface Package {
   id: string;
   name: string;
@@ -19,7 +25,10 @@ export interface Package {
   tier: "silver" | "gold" | "platinum" | "vip";
   badge?: string;
   isPopular?: boolean;
-  features: string[];
+  price: string;
+  priceNote: string;
+  highlights: string[];
+  categories: PackageItem[];
   image: string;
   ctaText: string;
 }
@@ -76,4 +85,30 @@ export interface ContactInfo {
 export interface NavLink {
   label: string;
   href: string;
+}
+
+export interface PaymentInstallment {
+  number: string;
+  percentage: string;
+  label: string;
+  labelAr: string;
+  items: string[];
+}
+
+export interface GeneralNote {
+  textAr: string;
+  textEn: string;
+}
+
+export interface CostPlusTier {
+  range: string;
+  rangeAr: string;
+  percentage: string;
+}
+
+export interface EstimationStep {
+  number: string;
+  titleAr: string;
+  titleEn: string;
+  items: string[];
 }

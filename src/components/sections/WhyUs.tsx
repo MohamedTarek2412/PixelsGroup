@@ -1,9 +1,5 @@
 "use client";
 
-// ============================================================
-// WhyUs Section — 8 key differentiators with icons
-// ============================================================
-
 import {
   Users,
   Clock,
@@ -40,7 +36,7 @@ export function WhyUs() {
     >
       {/* Decorative large text */}
       <div
-        className="absolute -left-8 top-1/2 -translate-y-1/2 text-[180px] font-black leading-none pointer-events-none select-none hidden xl:block"
+        className="absolute -start-8 top-1/2 -translate-y-1/2 text-[180px] font-black leading-none pointer-events-none select-none hidden xl:block"
         style={{
           color: "rgba(208,151,52,0.02)",
           fontFamily: "var(--font-accent)",
@@ -53,7 +49,7 @@ export function WhyUs() {
 
       <div className="container-brand">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 xl:gap-24 items-center">
-          {/* Left: Header + large number */}
+          {/* Right: Header + large number (RTL = col-span-2 on the right) */}
           <motion.div
             className="lg:col-span-2"
             variants={fadeInLeft}
@@ -62,11 +58,11 @@ export function WhyUs() {
             viewport={viewportOnce}
           >
             <SectionHeader
-              overline="Why Pixels Group"
-              title="The Standard"
-              titleHighlight="You Deserve."
-              description="We don't just finish spaces — we engineer experiences. Eight principles guide every project we undertake."
-              align="left"
+              overline="لماذا بيكسلز جروب"
+              title="المعيار الذي"
+              titleHighlight="تستحقه."
+              description="نحن لا نكتفي بتشطيب المساحات — بل نبتكر تجارب تعيش طويلاً. 8 مبادئ أساسية توجه كل مشروع نتولاه."
+              align="right"
             />
 
             <motion.div
@@ -90,10 +86,10 @@ export function WhyUs() {
                   8
                 </span>
                 <span
-                  className="text-xs font-semibold tracking-widest uppercase"
-                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                  className="text-xs font-semibold tracking-widest uppercase mt-1"
+                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                 >
-                  Core Commitments
+                  ركائز أساسية
                 </span>
               </div>
               <div
@@ -104,12 +100,12 @@ export function WhyUs() {
                 className="text-sm leading-relaxed"
                 style={{ color: "var(--color-dark-gray)" }}
               >
-                Every promise is a guarantee. Every project is a testament to our standards.
+                كل وعد هو ضمان. وكل مشروع يمثل شهادة على معاييرنا العالية.
               </p>
             </motion.div>
           </motion.div>
 
-          {/* Right: Points grid */}
+          {/* Left: Points grid */}
           <motion.div
             className="lg:col-span-3"
             variants={staggerContainer}
@@ -133,12 +129,12 @@ export function WhyUs() {
                     whileHover={{
                       borderColor: "rgba(208,151,52,0.25)",
                       backgroundColor: "rgba(30,31,32,0.8)",
-                      x: 4,
+                      x: -4, // move left in RTL
                     }}
                   >
                     {/* Number */}
                     <span
-                      className="text-[10px] font-bold shrink-0"
+                      className="text-[10px] font-bold shrink-0 mt-1"
                       style={{
                         color: "var(--color-gold-dark)",
                         fontFamily: "var(--font-accent)",
@@ -165,22 +161,11 @@ export function WhyUs() {
                     {/* Text */}
                     <div>
                       <h3
-                        className="text-sm font-bold mb-0.5"
+                        className="text-sm font-bold"
                         style={{ color: "var(--color-white)" }}
                       >
-                        {item.titleEn}
-                      </h3>
-                      <p
-                        className="text-xs"
-                        style={{
-                          color: "var(--color-dark-gray)",
-                          direction: "rtl",
-                          fontFamily: "var(--font-primary)",
-                        }}
-                        lang="ar"
-                      >
                         {item.titleAr}
-                      </p>
+                      </h3>
                     </div>
                   </motion.div>
                 );

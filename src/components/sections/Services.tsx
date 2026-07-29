@@ -1,33 +1,16 @@
 "use client";
 
-// ============================================================
-// Services Section — 7 premium service cards
-// ============================================================
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Building2,
-  Ruler,
-  Sofa,
-  HardHat,
-  ClipboardList,
-  TrendingUp,
-  Home,
-  ArrowRight,
+  Building2, Ruler, Sofa, HardHat, ClipboardList, TrendingUp, Home, ArrowLeft,
 } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SERVICES } from "@/lib/constants";
 import { staggerContainer, fadeInUp, viewportOnce } from "@/lib/animations";
 
 const ICON_MAP: Record<string, React.ElementType> = {
-  Building2,
-  Ruler,
-  Sofa,
-  HardHat,
-  ClipboardList,
-  TrendingUp,
-  Home,
+  Building2, Ruler, Sofa, HardHat, ClipboardList, TrendingUp, Home,
 };
 
 export function Services() {
@@ -39,24 +22,22 @@ export function Services() {
       className="section-padding bg-brand relative overflow-hidden"
       aria-labelledby="services-heading"
     >
-      {/* Background decoration */}
       <div
-        className="absolute top-0 left-0 w-1/2 h-1/2 pointer-events-none"
+        className="absolute top-0 end-0 w-1/2 h-1/2 pointer-events-none"
         aria-hidden="true"
         style={{
-          background:
-            "radial-gradient(ellipse 60% 60% at 0% 0%, rgba(208,151,52,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 60% 60% at 100% 0%, rgba(208,151,52,0.04) 0%, transparent 70%)",
         }}
       />
 
       <div className="container-brand">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <SectionHeader
-            overline="What We Do"
-            title="Our"
-            titleHighlight="Services"
-            description="Comprehensive interior solutions — from initial concept to final handover — executed with engineering precision and luxury standards."
-            align="left"
+            overline="خدماتنا"
+            title="ما نقدمه"
+            titleHighlight="لعملائنا"
+            description="حلول تشطيب شاملة — من الفكرة الأولى حتى التسليم النهائي — بدقة هندسية ومعايير فاخرة."
+            align="right"
           />
           <motion.div
             initial={{ opacity: 0 }}
@@ -67,11 +48,11 @@ export function Services() {
           >
             <a
               href="#contact"
-              className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase transition-colors hover:text-[var(--color-gold-light)]"
+              className="flex items-center gap-2 text-sm font-semibold tracking-wider transition-colors hover:text-[var(--color-gold-light)]"
               style={{ color: "var(--color-gold)", fontFamily: "var(--font-accent)" }}
             >
-              Request a Service
-              <ArrowRight size={14} />
+              <ArrowLeft size={14} />
+              اطلب خدمة
             </a>
           </motion.div>
         </div>
@@ -95,23 +76,17 @@ export function Services() {
                 onMouseLeave={() => setHoveredId(null)}
                 className="group relative p-7 rounded-sm flex flex-col gap-5 cursor-default overflow-hidden"
                 style={{
-                  background: isHovered
-                    ? "rgba(30,31,32,0.95)"
-                    : "rgba(20,21,22,0.8)",
-                  border: isHovered
-                    ? "1px solid rgba(208,151,52,0.4)"
-                    : "1px solid rgba(235,235,234,0.06)",
+                  background: isHovered ? "rgba(30,31,32,0.95)" : "rgba(20,21,22,0.8)",
+                  border: isHovered ? "1px solid rgba(208,151,52,0.4)" : "1px solid rgba(235,235,234,0.06)",
                   transition: "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                   transform: isHovered ? "translateY(-6px)" : "translateY(0)",
-                  boxShadow: isHovered
-                    ? "0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(208,151,52,0.1)"
-                    : "none",
+                  boxShadow: isHovered ? "0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(208,151,52,0.1)" : "none",
                 }}
-                aria-label={`Service: ${service.titleEn}`}
+                aria-label={`خدمة: ${service.titleAr}`}
               >
                 {/* Top border glow */}
                 <motion.div
-                  className="absolute top-0 left-0 right-0 h-[1px]"
+                  className="absolute top-0 start-0 end-0 h-[1px]"
                   style={{
                     background: "linear-gradient(90deg, transparent, var(--color-gold), transparent)",
                     opacity: isHovered ? 1 : 0,
@@ -121,7 +96,7 @@ export function Services() {
 
                 {/* Service Number */}
                 <span
-                  className="absolute top-5 right-6 text-5xl font-black opacity-[0.04] select-none"
+                  className="absolute top-5 start-6 text-5xl font-black opacity-[0.04] select-none"
                   style={{ fontFamily: "var(--font-accent)", color: "var(--color-gold)" }}
                   aria-hidden="true"
                 >
@@ -132,9 +107,7 @@ export function Services() {
                 <motion.div
                   className="w-12 h-12 rounded-sm flex items-center justify-center"
                   style={{
-                    background: isHovered
-                      ? "rgba(208,151,52,0.15)"
-                      : "rgba(208,151,52,0.07)",
+                    background: isHovered ? "rgba(208,151,52,0.15)" : "rgba(208,151,52,0.07)",
                     border: "1px solid rgba(208,151,52,0.2)",
                     transition: "all 0.3s ease",
                   }}
@@ -155,27 +128,19 @@ export function Services() {
                     className="text-base font-bold mb-1 transition-colors duration-300"
                     style={{ color: isHovered ? "var(--color-gold-light)" : "var(--color-white)" }}
                   >
-                    {service.titleEn}
+                    {service.titleAr}
                   </h3>
                   <p
                     className="text-xs"
-                    style={{
-                      color: "var(--color-dark-gray)",
-                      direction: "rtl",
-                      fontFamily: "var(--font-primary)",
-                    }}
-                    lang="ar"
+                    style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
                   >
-                    {service.titleAr}
+                    {service.titleEn}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  {service.descriptionEn}
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                  {service.descriptionAr}
                 </p>
 
                 {/* Feature pills */}
@@ -195,22 +160,6 @@ export function Services() {
                     </span>
                   ))}
                 </div>
-
-                {/* Hover arrow */}
-                <AnimatePresence>
-                  {isHovered && (
-                    <motion.div
-                      initial={{ opacity: 0, x: -5 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -5 }}
-                      className="flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase"
-                      style={{ color: "var(--color-gold)", fontFamily: "var(--font-accent)" }}
-                    >
-                      Learn More
-                      <ArrowRight size={11} />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </motion.article>
             );
           })}

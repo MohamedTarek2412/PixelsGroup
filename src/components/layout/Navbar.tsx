@@ -1,15 +1,13 @@
 "use client";
 
-// ============================================================
-// Navbar — Premium fixed navigation with scroll behavior
-// ============================================================
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { NAV_LINKS, CONTACT, COMPANY_NAME } from "@/lib/constants";
 import { whatsappLink } from "@/lib/utils";
+import { Link as ScrollLink } from "react-scroll";
+import Image from "next/image";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,44 +78,10 @@ export function Navbar() {
             <Link
               href="/"
               className="flex items-center gap-3 no-underline group"
-              aria-label={`${COMPANY_NAME} - Home`}
+              aria-label="الرئيسية"
             >
-              <div className="relative">
-                {/* Stylized logo mark */}
-                <div className="w-9 h-9 relative">
-                  <div
-                    className="absolute inset-0 rounded-sm"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, #D09734 0%, #F5C759 50%, #BB832A 100%)",
-                    }}
-                  />
-                  <div className="absolute inset-[2px] bg-[var(--color-black)] rounded-[2px] flex items-center justify-center">
-                    <span
-                      className="text-[10px] font-black tracking-[-0.05em]"
-                      style={{ color: "#D09734", fontFamily: "var(--font-accent)" }}
-                    >
-                      PG
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span
-                  className="text-sm font-bold tracking-[0.12em] uppercase"
-                  style={{
-                    color: "var(--color-white)",
-                    fontFamily: "var(--font-accent)",
-                  }}
-                >
-                  Pixels
-                </span>
-                <span
-                  className="text-[9px] font-medium tracking-[0.3em] uppercase"
-                  style={{ color: "var(--color-gold)" }}
-                >
-                  Group
-                </span>
+              <div className="relative w-32 h-12 flex items-center">
+                <Image src="/assets/logo/logo.png" alt={COMPANY_NAME} fill sizes="128px" className="object-contain object-right" />
               </div>
             </Link>
 
@@ -127,12 +91,12 @@ export function Navbar() {
                 <li key={href}>
                   <button
                     onClick={() => handleNavClick(href)}
-                    className={`relative text-xs font-semibold tracking-[0.12em] uppercase transition-colors duration-300 bg-transparent border-none cursor-pointer ${
+                    className={`relative text-[13px] font-semibold transition-colors duration-300 bg-transparent border-none cursor-pointer ${
                       activeSection === href
                         ? "text-[var(--color-gold)]"
                         : "text-[var(--text-secondary)] hover:text-[var(--color-white)]"
                     }`}
-                    style={{ fontFamily: "var(--font-accent)" }}
+                    style={{ fontFamily: "var(--font-primary)" }}
                     aria-current={activeSection === href ? "page" : undefined}
                   >
                     {label}
@@ -154,32 +118,32 @@ export function Navbar() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href={whatsappLink(CONTACT.whatsapp[0], "Hello, I'd like to inquire about your services.")}
+                href={whatsappLink(CONTACT.whatsapp[0], "مرحباً، أود الاستفسار عن خدماتكم.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-semibold tracking-wider uppercase transition-all duration-300 hover:text-[var(--color-gold-light)]"
+                className="flex items-center gap-2 px-4 py-2 rounded-sm text-xs font-semibold transition-all duration-300 hover:text-[var(--color-gold-light)]"
                 style={{
-                  fontFamily: "var(--font-accent)",
+                  fontFamily: "var(--font-primary)",
                   color: "var(--color-gold)",
                   border: "1px solid rgba(208,151,52,0.3)",
                 }}
-                aria-label="Contact us on WhatsApp"
+                aria-label="تواصل معنا عبر واتساب"
               >
                 <MessageCircle size={13} />
-                WhatsApp
+                واتساب
               </a>
               <a
                 href={`tel:${CONTACT.phones[0]}`}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-sm text-xs font-semibold tracking-wider uppercase transition-all duration-300"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-sm text-xs font-semibold transition-all duration-300"
                 style={{
-                  fontFamily: "var(--font-accent)",
+                  fontFamily: "var(--font-primary)",
                   background: "var(--color-gold)",
                   color: "var(--color-black)",
                 }}
-                aria-label={`Call us at ${CONTACT.phones[0]}`}
+                aria-label={`اتصل بنا على ${CONTACT.phones[0]}`}
               >
                 <Phone size={12} />
-                Call Now
+                اتصل الآن
               </a>
             </div>
 
@@ -188,7 +152,7 @@ export function Navbar() {
               className="lg:hidden p-2 text-[var(--color-white)] bg-transparent border-none cursor-pointer"
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               whileTap={{ scale: 0.9 }}
-              aria-label={isMobileOpen ? "Close menu" : "Open menu"}
+              aria-label={isMobileOpen ? "إغلاق القائمة" : "فتح القائمة"}
               aria-expanded={isMobileOpen}
               aria-controls="mobile-nav"
             >
@@ -227,10 +191,10 @@ export function Navbar() {
             id="mobile-nav"
             role="dialog"
             aria-modal="true"
-            aria-label="Mobile navigation"
-            initial={{ opacity: 0, x: "100%" }}
+            aria-label="التنقل للموبايل"
+            initial={{ opacity: 0, x: "-100%" }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
+            exit={{ opacity: 0, x: "-100%" }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-40 lg:hidden flex flex-col"
             style={{
@@ -238,7 +202,7 @@ export function Navbar() {
               backdropFilter: "blur(24px)",
             }}
           >
-            <div className="flex flex-col justify-center h-full container-brand gap-8">
+            <div className="flex flex-col justify-center h-full container-brand gap-8 pt-20">
               <motion.div
                 className="flex flex-col gap-6"
                 initial="hidden"
@@ -252,15 +216,15 @@ export function Navbar() {
                   <motion.div
                     key={href}
                     variants={{
-                      hidden: { opacity: 0, x: -20 },
+                      hidden: { opacity: 0, x: 20 },
                       visible: { opacity: 1, x: 0 },
                     }}
                   >
                     <button
                       onClick={() => handleNavClick(href)}
-                      className={`text-3xl font-bold tracking-tight bg-transparent border-none cursor-pointer transition-colors duration-200 ${
+                      className={`text-2xl font-bold bg-transparent border-none cursor-pointer transition-colors duration-200 ${
                         activeSection === href
-                          ? "text-gradient-gold"
+                          ? "text-[var(--color-gold)]"
                           : "text-[var(--color-white)] hover:text-[var(--color-gold)]"
                       }`}
                       style={{ fontFamily: "var(--font-primary)" }}
@@ -283,7 +247,7 @@ export function Navbar() {
                   className="flex items-center gap-3 text-[var(--color-gold)]"
                 >
                   <Phone size={16} />
-                  <span className="text-lg font-semibold">{CONTACT.phones[0]}</span>
+                  <span className="text-lg font-semibold" dir="ltr">{CONTACT.phones[0]}</span>
                 </a>
                 <a
                   href={whatsappLink(CONTACT.whatsapp[0])}
@@ -292,7 +256,7 @@ export function Navbar() {
                   className="flex items-center gap-3 text-[var(--color-white)]"
                 >
                   <MessageCircle size={16} />
-                  <span className="text-lg font-semibold">{CONTACT.whatsapp[0]}</span>
+                  <span className="text-lg font-semibold" dir="ltr">{CONTACT.whatsapp[0]}</span>
                 </a>
               </motion.div>
             </div>

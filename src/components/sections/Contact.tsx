@@ -1,9 +1,5 @@
 "use client";
 
-// ============================================================
-// Contact Section — Form + Contact Info
-// ============================================================
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, MessageCircle, Mail, MapPin, Send, CheckCircle } from "lucide-react";
@@ -21,13 +17,13 @@ interface FormData {
 }
 
 const SERVICES_OPTIONS = [
-  "Integrated Finishing",
-  "Architectural Design",
-  "Interior Design",
-  "Engineering Supervision",
-  "Execution Estimation",
-  "Cost Plus System",
-  "Other",
+  "تشطيب متكامل",
+  "تصميم معماري",
+  "تصميم داخلي",
+  "إشراف هندسي",
+  "مقايسة تنفيذية",
+  "نظام Cost Plus",
+  "أخرى",
 ];
 
 export function Contact() {
@@ -50,7 +46,7 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission — replace with actual API call
+    // Simulate form submission
     await new Promise((r) => setTimeout(r, 1500));
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -81,26 +77,26 @@ export function Contact() {
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse 50% 60% at 0% 100%, rgba(208,151,52,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse 50% 60% at 100% 100%, rgba(208,151,52,0.05) 0%, transparent 70%)",
         }}
       />
 
       <div className="container-brand">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 xl:gap-20">
-          {/* Left: Info */}
+          {/* Right (RTL): Info */}
           <motion.div
             className="lg:col-span-2 flex flex-col gap-10"
-            variants={fadeInLeft}
+            variants={fadeInRight}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
           >
             <SectionHeader
-              overline="Get In Touch"
-              title="Start Your"
-              titleHighlight="Project"
-              description="Ready to transform your space? Contact us today for a free consultation and site inspection."
-              align="left"
+              overline="تواصل معنا"
+              title="ابدأ مشروعك"
+              titleHighlight="الآن"
+              description="مستعد لتحويل مساحتك؟ تواصل معنا اليوم للحصول على استشارة مجانية ومعاينة للموقع."
+              align="right"
             />
 
             {/* Contact methods */}
@@ -109,9 +105,9 @@ export function Contact() {
               <div>
                 <h3
                   className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3"
-                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                 >
-                  Phone
+                  الهاتف
                 </h3>
                 <div className="flex flex-col gap-2">
                   {CONTACT.phones.map((phone) => (
@@ -119,7 +115,7 @@ export function Contact() {
                       key={phone}
                       href={`tel:${formatPhone(phone)}`}
                       className="flex items-center gap-3 group"
-                      aria-label={`Call ${phone}`}
+                      aria-label={`اتصل بـ ${phone}`}
                     >
                       <div
                         className="w-9 h-9 rounded-sm flex items-center justify-center shrink-0"
@@ -133,6 +129,7 @@ export function Contact() {
                       <span
                         className="text-sm font-medium transition-colors group-hover:text-[var(--color-gold)]"
                         style={{ color: "var(--text-secondary)" }}
+                        dir="ltr"
                       >
                         {phone}
                       </span>
@@ -145,19 +142,19 @@ export function Contact() {
               <div>
                 <h3
                   className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3"
-                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                 >
-                  WhatsApp
+                  واتساب
                 </h3>
                 <div className="flex flex-col gap-2">
                   {CONTACT.whatsapp.map((wa) => (
                     <a
                       key={wa}
-                      href={whatsappLink(wa, "Hello, I'd like to inquire about your services.")}
+                      href={whatsappLink(wa, "مرحباً، أود الاستفسار عن خدماتكم.")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 group"
-                      aria-label={`WhatsApp ${wa}`}
+                      aria-label={`تواصل عبر واتساب ${wa}`}
                     >
                       <div
                         className="w-9 h-9 rounded-sm flex items-center justify-center shrink-0"
@@ -171,6 +168,7 @@ export function Contact() {
                       <span
                         className="text-sm font-medium transition-colors group-hover:text-[var(--color-gold)]"
                         style={{ color: "var(--text-secondary)" }}
+                        dir="ltr"
                       >
                         {wa}
                       </span>
@@ -183,9 +181,9 @@ export function Contact() {
               <div>
                 <h3
                   className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3"
-                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                  style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                 >
-                  Location
+                  العنوان
                 </h3>
                 <div className="flex items-center gap-3">
                   <div
@@ -198,7 +196,7 @@ export function Contact() {
                     <MapPin size={15} style={{ color: "var(--color-gold)" }} aria-hidden="true" />
                   </div>
                   <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                    Cairo, Egypt · Serving all of Greater Cairo
+                    القاهرة، مصر · نغطي القاهرة الكبرى
                   </span>
                 </div>
               </div>
@@ -214,21 +212,21 @@ export function Contact() {
             >
               <p
                 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-3"
-                style={{ color: "var(--color-gold)", fontFamily: "var(--font-accent)" }}
+                style={{ color: "var(--color-gold)", fontFamily: "var(--font-primary)" }}
               >
-                Response Time
+                وقت الاستجابة
               </p>
               <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                We respond to all inquiries within <strong style={{ color: "var(--color-white)" }}>24 hours</strong>.
-                Site inspections are typically arranged within <strong style={{ color: "var(--color-white)" }}>48 hours</strong>.
+                نقوم بالرد على جميع الاستفسارات خلال <strong style={{ color: "var(--color-white)" }}>24 ساعة</strong>.
+                يتم تحديد موعد المعاينة عادة خلال <strong style={{ color: "var(--color-white)" }}>48 ساعة</strong>.
               </p>
             </div>
           </motion.div>
 
-          {/* Right: Form */}
+          {/* Left (RTL): Form */}
           <motion.div
             className="lg:col-span-3"
-            variants={fadeInRight}
+            variants={fadeInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={viewportOnce}
@@ -242,7 +240,7 @@ export function Contact() {
             >
               {/* Top accent */}
               <div
-                className="absolute top-0 left-0 right-0 h-[2px]"
+                className="absolute top-0 inset-x-0 h-[2px]"
                 style={{
                   background: "linear-gradient(90deg, transparent, var(--color-gold), transparent)",
                 }}
@@ -265,41 +263,41 @@ export function Contact() {
                     <CheckCircle size={32} style={{ color: "var(--color-gold)" }} />
                   </div>
                   <h3 className="text-xl font-bold" style={{ color: "var(--color-white)" }}>
-                    Message Sent!
+                    تم إرسال رسالتك!
                   </h3>
                   <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                    Thank you for reaching out. Our team will contact you within 24 hours.
+                    شكراً لتواصلك معنا. سيقوم فريقنا بالتواصل معك قريباً جداً.
                   </p>
                   <a
                     href={whatsappLink(
                       CONTACT.whatsapp[0],
-                      `Hello, I just submitted a contact form on your website. My name is ${formData.name}.`
+                      `مرحباً، قمت بملء نموذج التواصل في الموقع. اسمي ${formData.name}.`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold tracking-wider uppercase"
+                    className="flex items-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold uppercase"
                     style={{
                       background: "var(--color-gold)",
                       color: "var(--color-black)",
-                      fontFamily: "var(--font-accent)",
+                      fontFamily: "var(--font-primary)",
                       textDecoration: "none",
                     }}
                   >
                     <MessageCircle size={14} />
-                    Also reach us on WhatsApp
+                    يمكنك أيضاً مراسلتنا عبر واتساب
                   </a>
                 </motion.div>
               ) : (
                 <form
                   onSubmit={handleSubmit}
                   noValidate
-                  aria-label="Contact form"
+                  aria-label="نموذج التواصل"
                 >
                   <h3
                     className="text-lg font-bold mb-8"
                     style={{ color: "var(--color-white)" }}
                   >
-                    Send Us a Message
+                    أرسل لنا رسالة
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
@@ -307,10 +305,10 @@ export function Contact() {
                     <div>
                       <label
                         htmlFor="contact-name"
-                        className="block text-[11px] font-semibold tracking-wider uppercase mb-2"
-                        style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                        className="block text-[11px] font-semibold mb-2"
+                        style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                       >
-                        Full Name *
+                        الاسم بالكامل *
                       </label>
                       <input
                         id="contact-name"
@@ -319,7 +317,7 @@ export function Contact() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your name"
+                        placeholder="الاسم"
                         style={inputStyle}
                         onFocus={(e) => {
                           e.target.style.borderColor = "rgba(208,151,52,0.5)";
@@ -337,10 +335,10 @@ export function Contact() {
                     <div>
                       <label
                         htmlFor="contact-phone"
-                        className="block text-[11px] font-semibold tracking-wider uppercase mb-2"
-                        style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                        className="block text-[11px] font-semibold mb-2"
+                        style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                       >
-                        Phone Number *
+                        رقم الهاتف *
                       </label>
                       <input
                         id="contact-phone"
@@ -350,7 +348,8 @@ export function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="01XXXXXXXXX"
-                        style={inputStyle}
+                        style={{ ...inputStyle, textAlign: "right" }}
+                        dir="ltr"
                         onFocus={(e) => {
                           e.target.style.borderColor = "rgba(208,151,52,0.5)";
                           e.target.style.boxShadow = "0 0 0 3px rgba(208,151,52,0.08)";
@@ -368,10 +367,10 @@ export function Contact() {
                   <div className="mb-5">
                     <label
                       htmlFor="contact-email"
-                      className="block text-[11px] font-semibold tracking-wider uppercase mb-2"
-                      style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                      className="block text-[11px] font-semibold mb-2"
+                      style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                     >
-                      Email Address
+                      البريد الإلكتروني
                     </label>
                     <input
                       id="contact-email"
@@ -380,7 +379,8 @@ export function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your@email.com"
-                      style={inputStyle}
+                      style={{ ...inputStyle, textAlign: "right" }}
+                      dir="ltr"
                       onFocus={(e) => {
                         e.target.style.borderColor = "rgba(208,151,52,0.5)";
                         e.target.style.boxShadow = "0 0 0 3px rgba(208,151,52,0.08)";
@@ -396,10 +396,10 @@ export function Contact() {
                   <div className="mb-5">
                     <label
                       htmlFor="contact-service"
-                      className="block text-[11px] font-semibold tracking-wider uppercase mb-2"
-                      style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                      className="block text-[11px] font-semibold mb-2"
+                      style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                     >
-                      Service Required
+                      الخدمة المطلوبة
                     </label>
                     <select
                       id="contact-service"
@@ -420,7 +420,7 @@ export function Contact() {
                         e.target.style.boxShadow = "none";
                       }}
                     >
-                      <option value="">Select a service...</option>
+                      <option value="">اختر الخدمة المناسبة لك...</option>
                       {SERVICES_OPTIONS.map((s) => (
                         <option key={s} value={s} style={{ background: "#141516" }}>
                           {s}
@@ -433,10 +433,10 @@ export function Contact() {
                   <div className="mb-8">
                     <label
                       htmlFor="contact-message"
-                      className="block text-[11px] font-semibold tracking-wider uppercase mb-2"
-                      style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-accent)" }}
+                      className="block text-[11px] font-semibold mb-2"
+                      style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}
                     >
-                      Message *
+                      الرسالة *
                     </label>
                     <textarea
                       id="contact-message"
@@ -445,7 +445,7 @@ export function Contact() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your project — location, size, requirements, budget..."
+                      placeholder="حدثنا عن مشروعك... الموقع، المساحة، متطلباتك الأساسية..."
                       style={{
                         ...inputStyle,
                         resize: "vertical",
@@ -466,13 +466,13 @@ export function Contact() {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex items-center justify-center gap-3 w-full py-4 rounded-sm text-sm font-bold tracking-widest uppercase transition-all duration-300 cursor-pointer"
+                    className="flex items-center justify-center gap-3 w-full py-4 rounded-sm text-sm font-bold transition-all duration-300 cursor-pointer"
                     style={{
                       background: isSubmitting
                         ? "rgba(208,151,52,0.5)"
                         : "var(--color-gold)",
                       color: "var(--color-black)",
-                      fontFamily: "var(--font-accent)",
+                      fontFamily: "var(--font-primary)",
                       border: "none",
                     }}
                     whileHover={isSubmitting ? {} : { scale: 1.01, y: -1 }}
@@ -486,12 +486,12 @@ export function Contact() {
                           animate={{ rotate: 360 }}
                           transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                         />
-                        Sending...
+                        جاري الإرسال...
                       </>
                     ) : (
                       <>
-                        <Send size={14} />
-                        Send Message
+                        <Send size={14} className="rotate-180" />
+                        إرسال الرسالة
                       </>
                     )}
                   </motion.button>
@@ -500,14 +500,14 @@ export function Contact() {
                     className="text-center text-xs mt-4"
                     style={{ color: "var(--color-dark-gray)" }}
                   >
-                    Or contact us directly on{" "}
+                    أو تواصل معنا مباشرة عبر{" "}
                     <a
                       href={whatsappLink(CONTACT.whatsapp[0])}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: "var(--color-gold)" }}
                     >
-                      WhatsApp
+                      واتساب
                     </a>
                   </p>
                 </form>

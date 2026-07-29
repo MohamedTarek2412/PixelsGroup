@@ -1,5 +1,6 @@
 // ============================================================
 // PIXELS GROUP — Site Constants & Content Data
+// All real data from official company brochures
 // ============================================================
 
 import type {
@@ -12,13 +13,17 @@ import type {
   WhyUsPoint,
   ContactInfo,
   NavLink,
+  PaymentInstallment,
+  GeneralNote,
+  CostPlusTier,
+  EstimationStep,
 } from "@/types";
 
 // ── Company Info ──────────────────────────────────────────
 export const COMPANY_NAME = "Pixels Group";
 export const COMPANY_NAME_AR = "بيكسلز جروب";
-export const COMPANY_TAGLINE = "Engineering Luxury Interiors";
-export const COMPANY_TAGLINE_AR = "هندسة الفخامة في كل تفصيلة";
+export const COMPANY_TAGLINE = "Engineering Tomorrow.";
+export const COMPANY_TAGLINE_AR = "هندسة الغد";
 export const COMPANY_DESCRIPTION =
   "A premier interior finishing, design, and engineering supervision company delivering integrated solutions across all budgets. Built on a foundation of precision, transparency, and uncompromising quality.";
 export const COMPANY_DESCRIPTION_AR =
@@ -97,13 +102,13 @@ export const SERVICES: Service[] = [
   {
     id: "estimation",
     icon: "ClipboardList",
-    titleEn: "Execution Estimation",
+    titleEn: "Executive Estimation",
     titleAr: "المقايسات التنفيذية",
     descriptionEn:
-      "Precise, transparent cost estimation with full material breakdowns — no hidden surprises, just complete clarity.",
+      "Precise, transparent cost estimation based on actual measurements — pay only for work actually executed.",
     descriptionAr:
-      "تقدير دقيق وشفاف للتكاليف مع تفاصيل كاملة للمواد — لا مفاجآت خفية، فقط وضوح تام.",
-    features: ["Full transparency", "Detailed breakdown", "Fixed pricing"],
+      "مقايسة تفصيلية شفافة بناءً على رفع المقاسات الفعلية — تدفع فقط مقابل الأعمال المنفذة فعلياً.",
+    features: ["Full transparency", "Detailed breakdown", "Actual quantities"],
   },
   {
     id: "costplus",
@@ -145,57 +150,309 @@ export const WHY_US: WhyUsPoint[] = [
   { icon: "Heart", titleEn: "After-Delivery Service", titleAr: "خدمة ما بعد التسليم" },
 ];
 
-// ── Packages ──────────────────────────────────────────────
+// ── Packages (REAL DATA) ──────────────────────────────────
 export const PACKAGES: Package[] = [
   {
     id: "silver",
     name: "Silver",
-    nameAr: "فضي",
+    nameAr: "سيلفر",
     tier: "silver",
-    features: [
-      "Standard finishing materials",
-      "Engineering supervision",
-      "2D floor plans",
-      "Monthly progress reports",
-      "1-year warranty",
+    price: "4,200",
+    priceNote: "جنيه للمتر",
+    highlights: ["متابعة مستمرة", "التزام بالمواعيد", "ضمان على التنفيذ", "جودة عالية"],
+    categories: [
+      {
+        category: "Electrical",
+        categoryAr: "بند الكهرباء",
+        items: [
+          "سلك سويدي أصلي",
+          "علبة ماجيك",
+          "لوحة رئيسية 12 خط",
+          "دائرة تليفون",
+          "دائرة internet",
+          "مفتاح ديفيتير للطرقة",
+          "مفتاح وبريزة صنشاين",
+          "إضاءة الريسيبشن والطرقة بالكامل ليد واسبوتات",
+        ],
+      },
+      {
+        category: "Plumbing & Waterproofing",
+        categoryAr: "بند السباكة والعزل",
+        items: [
+          "مواسير تغذية BR مع الاختبار والضمان",
+          "مواسير صرف كاسيل الألماني",
+          "عزل الحمامات سيكا 107 كيماويات البناء الحديث",
+          "تشطيب صحي (خلاطات وحوض وقاعدة) لا يتعدى 10,000 ج",
+          "تأسيس صرف لوحدة تكييف",
+          "هدية الباقة: طقم اكسسوارات للحمام",
+        ],
+      },
+      {
+        category: "Ceilings",
+        categoryAr: "بند الأسقف",
+        items: [
+          "جبسمبورد بيت نور للريسيبشن والطرقة",
+          "كرانيش جبسية أو فيوتيك لباقي الغرف",
+          "كيماويت أو مصيص لباقي الغرف",
+        ],
+      },
+      {
+        category: "Flooring",
+        categoryAr: "بند السيراميك",
+        items: [
+          "أرضيات الشقة بالكامل سيراميك كليوباترا لا يتعدى سعر المتر 200 ج",
+          "تركيب وزرة من نفس نوع الأرضية",
+        ],
+      },
+      {
+        category: "Paint",
+        categoryAr: "بند الدهانات",
+        items: [
+          "وش سيلر مائي",
+          "عدد 3 سكينة معجون",
+          "بطانة + تلقيطة",
+          "وشين تشطيب GLC",
+        ],
+      },
+      {
+        category: "Aluminum",
+        categoryAr: "بند الألومنيوم",
+        items: [
+          "الوميتال PS قطاع صغير شبابيك الحمامات والمطبخ",
+        ],
+      },
+      {
+        category: "Decorations",
+        categoryAr: "بند الديكورات",
+        items: [
+          "جنب ورق حائط بمساحة 9 م²",
+          "جنب ديكور دهانات حائط واحد",
+        ],
+      },
+      {
+        category: "Doors",
+        categoryAr: "بند الأبواب",
+        items: [
+          "باب مصفح صيني لباب الشقة",
+          "الأبواب الداخلية صيني مستورد",
+        ],
+      },
     ],
     image: "/assets/packages/silver.jpg",
-    ctaText: "Get Silver",
+    ctaText: "احجز باقة Silver",
   },
   {
     id: "gold",
     name: "Gold",
-    nameAr: "ذهبي",
+    nameAr: "جولد",
     tier: "gold",
     isPopular: true,
-    badge: "Most Popular",
-    features: [
-      "Premium finishing materials",
-      "Full interior design",
-      "2D & 3D visualization",
-      "Weekly progress reports",
-      "Daily supervision",
-      "2-year warranty",
+    badge: "الأكثر طلباً",
+    price: "5,250",
+    priceNote: "جنيه للمتر",
+    highlights: ["متابعة مستمرة", "التزام بالمواعيد", "ضمان على التنفيذ", "جودة عالية"],
+    categories: [
+      {
+        category: "Electrical",
+        categoryAr: "بند الكهرباء",
+        items: [
+          "سلك سويدي أصلي",
+          "علب ماجيك",
+          "لوحة رئيسية 18 خط",
+          "شاسيه ووش فينوس",
+          "خراطيم مصطفى محمود",
+          "دائرة ستالايت (إنترنت + تليفزيون) للريسيبشن وغرفة النوم الماستر",
+          "ديفيتير للطرقة وغرفة نوم ماستر",
+          "تأسيس تكييف للريسيبشن وغرفة نوم ماستر",
+          "ليد واسبوتات 3 حركة الشقة كاملة",
+        ],
+      },
+      {
+        category: "Plumbing & Waterproofing",
+        categoryAr: "بند السباكة والعزل",
+        items: [
+          "صرف كاسيل ألماني ضمان 10 سنوات",
+          "تركيب BR ضمان 10 سنوات",
+          "عزل ممبريل للحمامات",
+          "قطاع زجاج ثابت للشاور",
+          "أطقم صحي وأكسسوارات لا تتعدى 16 ألف من أي نوع يختاره العميل",
+          "هدية الباقة: طقم اكسسوارات حمام + مرآة ليد",
+        ],
+      },
+      {
+        category: "Ceilings",
+        categoryAr: "بند الأسقف",
+        items: [
+          "جبسمبورد إجمالي مساحة الشقة بالمتر الطولي",
+          "كناوف أبيض للريسيبشن والغرف",
+          "كناوف أحمر للمطبخ (مقاومة الحرارة)",
+          "كناوف أخضر للحمامات (مقاومة الرطوبة)",
+          "جبس بلدي بنفس تصميم الجبسمبورد",
+          "باقي أسقف الشقة مصيص أو كيماويت",
+        ],
+      },
+      {
+        category: "Flooring",
+        categoryAr: "بند الأرضيات",
+        items: [
+          "سيراميك 60x60 للريسيبشن والغرف والطرقة والحمامات لا يتعدى سعر المتر 280 ج",
+          "عمل معايرة استانلس عند الأبواب",
+        ],
+      },
+      {
+        category: "Paint",
+        categoryAr: "بند الدهانات",
+        items: [
+          "وش سيلر مائي",
+          "3 سكينة معجون دايتون",
+          "وش بطانة + تلقيطة",
+          "2 وش دهانات نهائي GLC",
+        ],
+      },
+      {
+        category: "Doors",
+        categoryAr: "بند الأبواب",
+        items: [
+          "باب رئيسي مصفح تركي",
+          "الأبواب الداخلية خشب مستورد صيني",
+        ],
+      },
+      {
+        category: "Aluminum",
+        categoryAr: "بند الألوميتال",
+        items: [
+          "شبابيك المطبخ + شبابيك الحمام PS صغير",
+          "زجاج مصنفر للشبابيك",
+        ],
+      },
+      {
+        category: "Decorations",
+        categoryAr: "بند الديكورات",
+        items: [
+          "جنب ديكور شيبورد لا يتعدى 9 م²",
+          "25 م.ط فيوتيك",
+        ],
+      },
     ],
     image: "/assets/packages/gold.jpg",
-    ctaText: "Get Gold",
+    ctaText: "احجز باقة Gold",
   },
   {
     id: "platinum",
     name: "Platinum",
-    nameAr: "بلاتيني",
+    nameAr: "بلاتينيوم",
     tier: "platinum",
-    features: [
-      "Luxury finishing materials",
-      "Full architectural & interior design",
-      "3D walkthroughs",
-      "Bi-weekly client meetings",
-      "Daily on-site supervision",
-      "Custom furniture sourcing",
-      "3-year warranty",
+    badge: "جودة استثنائية",
+    price: "7,000",
+    priceNote: "جنيه للمتر",
+    highlights: ["متابعة مستمرة", "التزام بالمواعيد", "ضمان على التنفيذ", "جودة عالية"],
+    categories: [
+      {
+        category: "Plumbing & Waterproofing",
+        categoryAr: "بند السباكة والعزل",
+        items: [
+          "مواسير صرف كاسيل ألماني",
+          "مواسير التغذية BR معزول أو أكواتيرم",
+          "عزل ممبريل + عزل سيكا 107 كيماويات البناء الحديث",
+          "صندوق دفن جروهي",
+          "خلاط دفن للشاور",
+          "كابينة شاور زجاج مفصلي أو جرار",
+          "تشطيب صحي جروهي أو ايديال ستاندرد (خلاطات وأكسسوارات وأحواض وقواعد) لا يتعدى 25 ألف",
+          "هدية الباقة: مرآة حمام + وحدة حوض HPL",
+        ],
+      },
+      {
+        category: "Flooring",
+        categoryAr: "بند الأرضيات",
+        items: [
+          "بورسلين 60×120 للريسيبشن والطرقة والحمامات لا يتعدى سعر المتر 500 ج",
+          "أرضيات الغرف سيراميك كليوباترا 60x60 قطع ليزر وسيراميك باركيه",
+          "المطابخ سيراميك كليوباترا لا يتعدى سعر المتر 300 ج",
+          "ديكورات أرفف وخرنقات للحمامات",
+          "المعايير للغرف جرانيت أسود أسواني",
+          "عتب باب الشقة امبرادور إسباني",
+        ],
+      },
+      {
+        category: "Ceilings",
+        categoryAr: "بند الأسقف",
+        items: [
+          "فلات للريسيبشن والطرقة وغرفة نوم الماستر والحمامات والمطابخ",
+          "بيت نور لباقي الغرف + ديكورات جبسية",
+        ],
+      },
+      {
+        category: "Doors",
+        categoryAr: "بند الأبواب",
+        items: [
+          "باب مصفح تركي",
+          "الأبواب الداخلية جاهزة تركي",
+        ],
+      },
+      {
+        category: "Aluminum",
+        categoryAr: "بند الألوميتال",
+        items: [
+          "تركيب أبواب وشبابيك قطاع PS صغير للحمامات والمطبخ + باب بلكونة",
+          "زجاج مصنفر للشبابيك الداخلية",
+          "زجاج عاكس للواجهات",
+        ],
+      },
+      {
+        category: "Paint",
+        categoryAr: "بند الدهانات",
+        items: [
+          "وش سيلر مقاوم للرطوبة",
+          "4 سكينة معجون",
+          "وش بطانة + وش تلقيط",
+          "2 وش تشطيب نهائي من خامة جوتن",
+        ],
+      },
+      {
+        category: "Sound System",
+        categoryAr: "ساوند سيستم",
+        items: [
+          "تأسيس ساوند سيستم للريسيبشن",
+        ],
+      },
+      {
+        category: "AC",
+        categoryAr: "التكييفات",
+        items: [
+          "تأسيس مواسير فريون جنوب أفريقي بحد أقصى 20 م.ط",
+          "تأسيس صرف التكييفات",
+          "تأسيس الكهرباء",
+        ],
+      },
+      {
+        category: "Electrical",
+        categoryAr: "بند الكهرباء",
+        items: [
+          "سلك سويدي أصلي",
+          "علب ماجيك",
+          "خراطيم مصطفى محمود",
+          "لوحة كهرباء 24 خط",
+          "لوحة خدمات للتيار الخفيف",
+          "مفاتيح وبرايز فيديمينو",
+          "ليد واسبوتات 3 حركة",
+          "9 م ليد بروفايل",
+          "2 أبليك",
+          "6 م ماجيك تراك",
+          "ديفيتير للريسيبشن والطرقة والغرفة الماستر",
+        ],
+      },
+      {
+        category: "Decorations",
+        categoryAr: "بند الديكورات",
+        items: [
+          "تجاليد شيبورد لا يتعدى 22 م²",
+          "20 م.ط ديكورات جبسية استغلال المساحات شامل الإضاءة",
+          "40 م.ط فيوتيك",
+        ],
+      },
     ],
     image: "/assets/packages/platinum.jpg",
-    ctaText: "Get Platinum",
+    ctaText: "احجز باقة Platinum",
   },
   {
     id: "vip",
@@ -203,19 +460,267 @@ export const PACKAGES: Package[] = [
     nameAr: "في آي بي",
     tier: "vip",
     badge: "Exclusive",
-    features: [
-      "Ultra-luxury materials worldwide",
-      "Complete bespoke design system",
-      "Full 3D cinematic rendering",
-      "Dedicated project manager",
-      "24/7 supervisor access",
-      "Smart home integration",
-      "Custom joinery & millwork",
-      "5-year comprehensive warranty",
+    price: "9,500",
+    priceNote: "جنيه للمتر",
+    highlights: ["متابعة مستمرة", "التزام بالمواعيد", "ضمان على التنفيذ", "جودة عالية"],
+    categories: [
+      {
+        category: "Ceilings",
+        categoryAr: "بند الأسقف",
+        items: [
+          "جبسمبورد فلات أبيض للريسيبشن وجميع الغرف من نوع كناوف",
+          "جبسمبورد أخضر للحمامات مقاوم للرطوبة",
+          "جبسمبورد أحمر للمطبخ مقاوم للحرارة",
+        ],
+      },
+      {
+        category: "Electrical",
+        categoryAr: "بند الكهرباء",
+        items: [
+          "سلك سويدي أصلي",
+          "مواسير مصطفى محمود",
+          "لوحة كهرباء 24 خط",
+          "شاسيه ووش شنايدر أو مينوس",
+          "علب ماجيك",
+          "مفتاح ديفيتير لجميع الغرف",
+          "كشافات طوارئ لجميع الغرف",
+          "20 م ليد بروفايل",
+          "15 م ماجنتك تراك",
+          "4 أبليك",
+          "شفاطات للحمامات والمطابخ",
+          "ليد واسبوتات 3 حركة للشقة بالكامل",
+          "دائرة تليفون",
+          "دائرة ستالايت",
+          "دائرة إنترنت",
+        ],
+      },
+      {
+        category: "Plumbing & Waterproofing",
+        categoryAr: "بند السباكة والعزل",
+        items: [
+          "عزل ممبريل",
+          "عزل سيكا 107 كيماويات البناء الحديث",
+          "مواسير صرف كاسيل الألماني",
+          "مواسير تغذية BR أو أكواتيرم",
+          "تأسيس 2 صندوق دفن جروهي",
+          "تأسيس شاور دفن",
+          "تأسيس وحدة شاور شامل السيكوريت",
+          "تشطيب الصحي بالكامل (ايديال ستاندرد أو ديورافيت أو جروهي) — خلاطات وأحواض واكسسوارات وقواعد لا تتعدى 50,000 ج",
+          "هدية الباقة: وحدة حوض للحمامات + مرآة ليد",
+        ],
+      },
+      {
+        category: "Flooring",
+        categoryAr: "بند الأرضيات",
+        items: [
+          "بورسلين هندي 60×120 للريسيبشن والطرقة والحمامات لا يتعدى سعر المتر 550 ج",
+          "أرضيات سيراميك 60×60 فرز أول قطع ليزر لجميع الغرف والمطبخ أو أرضيات HDF بحسب اختيار العميل",
+          "أرضية كابينة الشاور رخام",
+          "المعايير رخام مستورد امبرادور غامق أو جرانيت أسود جلاكسي",
+          "عمل ديكورات للحمامات — أرفف وخرنقات",
+        ],
+      },
+      {
+        category: "Paint",
+        categoryAr: "بند الدهانات",
+        items: [
+          "وش سيلر مقاوم للرطوبة",
+          "4 سكينة معجون",
+          "وش بطانة + تلقيطة",
+          "3 وش دهانات قابلة للغسيل — جوتن أو الجزيرة",
+        ],
+      },
+      {
+        category: "Aluminum",
+        categoryAr: "بند الألوميتال",
+        items: [
+          "قطاع PVC تركي أو الوميتال PS كبير — شبابيك المطابخ والحمامات + باب البلكونة",
+          "زجاج عاكس",
+        ],
+      },
+      {
+        category: "Decorations",
+        categoryAr: "بند الديكورات",
+        items: [
+          "تجاليد شيبورد — المساحة 25 م²",
+          "تركيب 50 م.ط فيوتيك",
+          "ديكورات جبسية لاستغلال المساحات 20 م.ط",
+        ],
+      },
+      {
+        category: "Doors",
+        categoryAr: "بند الأبواب",
+        items: [
+          "باب مصفح تركي للباب الرئيسي شامل Smart Lock لا يتعدى سعره 10,000 ج",
+          "الأبواب الداخلية جاهزة تركي أو عمولة أو WPC",
+        ],
+      },
+      {
+        category: "Sound System",
+        categoryAr: "ساوند سيستم",
+        items: [
+          "ساوند سيستم للشقة بالكامل",
+        ],
+      },
+      {
+        category: "AC",
+        categoryAr: "التكييفات",
+        items: [
+          "تأسيس مواسير فريون جنوب أفريقي للشقة بالكامل بحد أقصى 25 م.ط",
+          "تأسيس مواسير الصرف بالكامل",
+          "تأسيس الكهرباء",
+        ],
+      },
     ],
     image: "/assets/packages/vip.jpg",
-    ctaText: "Request VIP",
+    ctaText: "احجز باقة VIP",
   },
+];
+
+// ── Payment System (آلية السداد) ──────────────────────────
+export const PAYMENT_INSTALLMENTS: PaymentInstallment[] = [
+  {
+    number: "01",
+    percentage: "50%",
+    label: "First Installment",
+    labelAr: "الدفعة الأولى",
+    items: [
+      "معاينة",
+      "تصميم",
+      "تأسيس سباكة",
+      "تأسيس كهرباء",
+    ],
+  },
+  {
+    number: "02",
+    percentage: "30%",
+    label: "Second Installment",
+    labelAr: "الدفعة الثانية",
+    items: [
+      "أسقف",
+      "أرضيات",
+    ],
+  },
+  {
+    number: "03",
+    percentage: "20%",
+    label: "Third Installment",
+    labelAr: "الدفعة الثالثة",
+    items: [
+      "تشطيب نهائي دهانات",
+      "ديكورات",
+      "تشطيب صحي وكهرباء",
+    ],
+  },
+];
+
+// ── General Notes & Terms (ملاحظات وشروط عامة) ───────────
+export const GENERAL_NOTES: GeneralNote[] = [
+  {
+    textAr: "يتم إضافة 400 جنيه/م² في حالة التعاقد داخل الكومباوند.",
+    textEn: "+400 EGP/m² for projects inside compounds.",
+  },
+  {
+    textAr: "يتم إضافة 400 جنيه/م² في حالة إضافة بند المحارة.",
+    textEn: "+400 EGP/m² for plastering (محارة) work.",
+  },
+  {
+    textAr: "يتم إضافة 200 جنيه/م² في حالة التعديلات المعمارية.",
+    textEn: "+200 EGP/m² for architectural modifications.",
+  },
+  {
+    textAr: "يتم إضافة 200 جنيه/م² في حالة أعمال الهدم.",
+    textEn: "+200 EGP/m² for demolition works.",
+  },
+];
+
+// ── Cost Plus System ──────────────────────────────────────
+export const COST_PLUS_TIERS: CostPlusTier[] = [
+  {
+    range: "Less than 1,000,000 EGP",
+    rangeAr: "أقل من 1,000,000 جنيه",
+    percentage: "20%",
+  },
+  {
+    range: "1,000,000 — 2,000,000 EGP",
+    rangeAr: "من 1,000,000 إلى 2,000,000 جنيه",
+    percentage: "15%",
+  },
+  {
+    range: "More than 2,000,000 EGP",
+    rangeAr: "أكثر من 2,000,000 جنيه",
+    percentage: "12%",
+  },
+];
+
+export const COST_PLUS_INCLUDES = [
+  "شراء الخامات باسم العميل",
+  "مراجعة واعتماد جميع الخامات قبل التنفيذ",
+  "إدارة ومتابعة جميع بنود التشطيب",
+  "الإشراف على جودة التنفيذ والاستلام",
+  "تقديم تقارير دورية عن سير الأعمال",
+];
+
+export const COST_PLUS_GIFTS = [
+  "تصميم معماري 2D مجاني مع مقترح الفرش",
+  "مقترح توزيع وفرش الأثاث مجاني",
+  "مقايسة مجانية",
+  "معاينة مجانية",
+];
+
+export const COST_PLUS_NO_CONTRACT_FEE = "5,000 جنيه";
+
+// ── Executive Estimation System (نظام المقايسة) ───────────
+export const ESTIMATION_STEPS: EstimationStep[] = [
+  {
+    number: "01",
+    titleAr: "المعاينة ورفع المقاسات",
+    titleEn: "Inspection & Measurements",
+    items: [
+      "معاينة الموقع",
+      "رفع جميع المقاسات",
+      "مناقشة احتياجات العميل",
+      "تحديد مستوى التشطيب",
+    ],
+  },
+  {
+    number: "02",
+    titleAr: "إعداد المقايسة",
+    titleEn: "Estimation Preparation",
+    items: [
+      "حصر جميع البنود",
+      "تحديد وحدة القياس لكل بند (م² - م - م.ط - عدد - مقطوعية)",
+      "تحديد سعر الوحدة لكل بند",
+      "إرسال المقايسة التفصيلية للعميل للمراجعة والاعتماد",
+    ],
+  },
+  {
+    number: "03",
+    titleAr: "بدء التنفيذ",
+    titleEn: "Start Execution",
+    items: [
+      "يبدأ التنفيذ بعد اعتماد المقايسة",
+      "يتم تنفيذ الأعمال وفق البنود والأسعار المعتمدة",
+    ],
+  },
+  {
+    number: "04",
+    titleAr: "المحاسبة",
+    titleEn: "Accounting",
+    items: [
+      "تتم المحاسبة على الكميات المنفذة فعلياً",
+      "يتم احتساب قيمة كل بند وفق سعر الوحدة الوارد بالمقايسة",
+      "لا يتم احتساب أي بند غير منفذ",
+    ],
+  },
+];
+
+export const ESTIMATION_ADVANTAGES = [
+  "شفافية كاملة في التسعير",
+  "مرونة في اختيار البنود والخامات",
+  "مناسب للشقق التي تختلف كمياتها أو تصميمها",
+  "سهولة إضافة أو حذف أي بند مع اعتماده قبل التنفيذ",
+  "تدفع مقابل التنفيذ الفعلي فقط",
 ];
 
 // ── Process Steps ────────────────────────────────────────
@@ -290,208 +795,473 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "1",
-    name: "Ahmed Karim",
-    role: "Residential Client — New Cairo",
-    content:
-      "Pixels Group transformed our apartment into something beyond what we imagined. The attention to detail, the quality of materials, and the professionalism of the team were absolutely exceptional. Every single corner was perfect.",
+    name: "أحمد كريم",
+    role: "عميل سكني — القاهرة الجديدة",
+    content: "الاهتمام بالتفاصيل كان استثنائياً. لقد حولوا فيلتنا إلى تحفة فنية مع الالتزام التام بالجدول الزمني. نظام Cost Plus وفر لنا شفافية تامة في كل خطوة.",
     rating: 5,
-    projectType: "Residential Finishing",
+    projectType: "تشطيب سكني"
   },
   {
     id: "2",
-    name: "Sara Mohamed",
-    role: "Commercial Client — 6th of October",
-    content:
-      "Our clinic was finished exactly on time and on budget — something I never expected. The team's transparency about costs and daily updates made the whole process stress-free. Highly recommended.",
+    name: "سارة محمود",
+    role: "عميل تجاري — السادس من أكتوبر",
+    content: "تم الانتهاء من عيادتنا في الوقت المحدد بالضبط وفي حدود الميزانية - وهو أمر لم أتوقعه أبدًا. الشفافية حول التكاليف والتحديثات اليومية جعلت العملية بأكملها خالية من التوتر.",
     rating: 5,
-    projectType: "Commercial Finishing",
+    projectType: "تشطيب تجاري"
   },
   {
     id: "3",
-    name: "Omar Hussain",
-    role: "Property Developer — Maadi",
-    content:
-      "We've worked with many finishing companies, but Pixels Group operates on a completely different level. Their engineering supervision is thorough, their materials are premium, and the results speak for themselves.",
+    name: "عمر حسين",
+    role: "مطور عقاري — المعادي",
+    content: "لقد عملنا مع العديد من شركات التشطيب، لكن بيكسلز جروب تعمل بمستوى مختلف تمامًا. إشرافهم الهندسي شامل وموادهم فاخرة والنتائج تتحدث عن نفسها.",
     rating: 5,
-    projectType: "Administrative Unit",
+    projectType: "وحدة إدارية"
   },
   {
     id: "4",
-    name: "Nour El-Din",
-    role: "Residential Client — Heliopolis",
-    content:
-      "The Cost Plus system was a game-changer for us. Full transparency, no hidden costs, and we had complete control over material choices. The team managed everything flawlessly while we enjoyed total peace of mind.",
+    name: "نور الدين",
+    role: "عميل سكني — مصر الجديدة",
+    content: "كان نظام Cost Plus بمثابة تغيير جذري بالنسبة لنا. شفافية كاملة، لا تكاليف خفية، وكان لدينا سيطرة كاملة على خيارات المواد. الفريق أدار كل شيء بلا عيب.",
     rating: 5,
-    projectType: "Villa Finishing (Cost Plus)",
+    projectType: "تشطيب فيلا (Cost Plus)"
   },
   {
     id: "5",
-    name: "Layla Ibrahim",
-    role: "Interior Design Client — Zamalek",
-    content:
-      "I came with a vague idea and they delivered a masterpiece. The 3D designs were stunning, but what impressed me most was how accurately they executed the design in real life. Pure excellence.",
+    name: "ليلى إبراهيم",
+    role: "عميل تصميم داخلي — الزمالك",
+    content: "جئت بفكرة غامضة وسلموا لي تحفة فنية. كانت التصاميم ثلاثية الأبعاد مذهلة، ولكن أكثر ما أثار إعجابي هو مدى دقة تنفيذهم للتصميم في الواقع.",
     rating: 5,
-    projectType: "Interior Design & Finishing",
-  },
+    projectType: "تصميم داخلي وتشطيب"
+  }
 ];
 
 // ── Projects ─────────────────────────────────────────────
 export const PROJECTS: Project[] = [
   {
-    id: "project-01",
-    title: "Modern Luxury Apartment",
-    location: "New Cairo",
-    type: "Residential",
-    area: "250 m²",
-    year: "2024",
-    coverImage: "/assets/projects/project-01/cover.jpg",
-    images: [
-      "/assets/projects/project-01/01.jpg",
-      "/assets/projects/project-01/02.jpg",
-      "/assets/projects/project-01/03.jpg",
-      "/assets/projects/project-01/04.jpg",
-    ],
-    description:
-      "A contemporary luxury apartment blending warm materials with clean architectural lines. Full turnkey finishing with custom joinery.",
-    category: "residential",
+    "id": "project-1",
+    "title": "اعمال السباكه في شقه المهندس رامز الفايد التجمع الخامس الاندلس",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/اعمال السباكه في شقه المهندس رامز الفايد التجمع الخامس الاندلس/WhatsApp Image 2026-07-25 at 12.35.18 PM.jpeg",
+      "/assets/projects/اعمال السباكه في شقه المهندس رامز الفايد التجمع الخامس الاندلس/WhatsApp Image 2026-07-25 at 12.35.19 PM.jpeg",
+      "/assets/projects/اعمال السباكه في شقه المهندس رامز الفايد التجمع الخامس الاندلس/WhatsApp Image 2026-07-25 at 12.35.20 PM.jpeg",
+      "/assets/projects/اعمال السباكه في شقه المهندس رامز الفايد التجمع الخامس الاندلس/WhatsApp Image 2026-07-25 at 12.35.21 PM.jpeg"
+    ]
   },
   {
-    id: "project-02",
-    title: "Executive Office Suite",
-    location: "Downtown Cairo",
-    type: "Administrative",
-    area: "180 m²",
-    year: "2024",
-    coverImage: "/assets/projects/project-02/cover.jpg",
-    images: [
-      "/assets/projects/project-02/01.jpg",
-      "/assets/projects/project-02/02.jpg",
-      "/assets/projects/project-02/03.jpg",
-      "/assets/projects/project-02/04.jpg",
-    ],
-    description:
-      "A premium executive office suite designed to command confidence and authority. Open workspace with private executive zones.",
-    category: "administrative",
+    "id": "project-2",
+    "title": "اعمال السيراميك مول التجمع الاول بالتعاون مع شركة Cse",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/اعمال السيراميك مول التجمع الاول بالتعاون مع شركة Cse/WhatsApp Image 2026-07-25 at 12.35.56 PM (1).jpeg",
+      "/assets/projects/اعمال السيراميك مول التجمع الاول بالتعاون مع شركة Cse/WhatsApp Image 2026-07-25 at 12.35.56 PM.jpeg",
+      "/assets/projects/اعمال السيراميك مول التجمع الاول بالتعاون مع شركة Cse/WhatsApp Image 2026-07-25 at 12.35.58 PM (1).jpeg",
+      "/assets/projects/اعمال السيراميك مول التجمع الاول بالتعاون مع شركة Cse/WhatsApp Image 2026-07-25 at 12.35.58 PM.jpeg"
+    ]
   },
   {
-    id: "project-03",
-    title: "Boutique Medical Clinic",
-    location: "Maadi, Cairo",
-    type: "Commercial",
-    area: "120 m²",
-    year: "2023",
-    coverImage: "/assets/projects/project-03/cover.jpg",
-    images: [
-      "/assets/projects/project-03/01.jpg",
-      "/assets/projects/project-03/02.jpg",
-      "/assets/projects/project-03/03.jpg",
-      "/assets/projects/project-03/04.jpg",
-    ],
-    description:
-      "A modern medical clinic balancing clinical precision with welcoming warmth. Fully compliant with medical facility standards.",
-    category: "commercial",
+    "id": "project-3",
+    "title": "رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.41 PM (1).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.41 PM (2).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.41 PM.jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.42 PM (1).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.42 PM (2).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.42 PM.jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.43 PM (1).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.43 PM (2).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.43 PM (3).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.43 PM.jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.44 PM (1).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.44 PM (2).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.44 PM (3).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.44 PM.jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.45 PM (1).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.45 PM.jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.46 PM (1).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.46 PM (2).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.46 PM.jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.47 PM (1).jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.47 PM.jpeg",
+      "/assets/projects/رفع كفاءة فندق راديسون بلو الشيراتون بالتعاون مع شركة الشمس/WhatsApp Image 2026-07-25 at 12.43.48 PM.jpeg"
+    ]
   },
   {
-    id: "project-04",
-    title: "Penthouse Duplex",
-    location: "Heliopolis",
-    type: "Residential",
-    area: "400 m²",
-    year: "2023",
-    coverImage: "/assets/projects/project-04/cover.jpg",
-    images: [
-      "/assets/projects/project-04/01.jpg",
-      "/assets/projects/project-04/02.jpg",
-      "/assets/projects/project-04/03.jpg",
-      "/assets/projects/project-04/04.jpg",
-    ],
-    description:
-      "A spectacular penthouse duplex featuring double-height ceilings, imported marble, and bespoke lighting design.",
-    category: "residential",
+    "id": "project-4",
+    "title": "سنترال محطة مصر اسكندريه بالتعاون مع شركه اوميجا",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/سنترال محطة مصر اسكندريه بالتعاون مع شركه اوميجا/WhatsApp Image 2026-07-25 at 12.35.48 PM.jpeg",
+      "/assets/projects/سنترال محطة مصر اسكندريه بالتعاون مع شركه اوميجا/WhatsApp Image 2026-07-25 at 12.35.49 PM (1).jpeg",
+      "/assets/projects/سنترال محطة مصر اسكندريه بالتعاون مع شركه اوميجا/WhatsApp Image 2026-07-25 at 12.35.49 PM.jpeg",
+      "/assets/projects/سنترال محطة مصر اسكندريه بالتعاون مع شركه اوميجا/WhatsApp Image 2026-07-25 at 12.35.50 PM.jpeg"
+    ]
   },
   {
-    id: "project-05",
-    title: "Premium Showroom",
-    location: "6th of October",
-    type: "Commercial",
-    area: "300 m²",
-    year: "2024",
-    coverImage: "/assets/projects/project-05/cover.jpg",
-    images: [
-      "/assets/projects/project-05/01.jpg",
-      "/assets/projects/project-05/02.jpg",
-      "/assets/projects/project-05/03.jpg",
-      "/assets/projects/project-05/04.jpg",
-    ],
-    description:
-      "A high-end retail showroom designed to showcase luxury products with theatrical lighting and precision display systems.",
-    category: "commercial",
+    "id": "project-5",
+    "title": "شقة العاشر من رمضان الشرقيه",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/شقة العاشر من رمضان الشرقيه/WhatsApp Image 2026-07-25 at 12.43.12 PM (1).jpeg",
+      "/assets/projects/شقة العاشر من رمضان الشرقيه/WhatsApp Image 2026-07-25 at 12.43.12 PM.jpeg",
+      "/assets/projects/شقة العاشر من رمضان الشرقيه/WhatsApp Image 2026-07-25 at 12.43.13 PM (1).jpeg",
+      "/assets/projects/شقة العاشر من رمضان الشرقيه/WhatsApp Image 2026-07-25 at 12.43.13 PM (2).jpeg",
+      "/assets/projects/شقة العاشر من رمضان الشرقيه/WhatsApp Image 2026-07-25 at 12.43.13 PM.jpeg",
+      "/assets/projects/شقة العاشر من رمضان الشرقيه/WhatsApp Image 2026-07-25 at 12.43.14 PM.jpeg"
+    ]
   },
   {
-    id: "project-06",
-    title: "Family Villa",
-    location: "Sheikh Zayed",
-    type: "Residential",
-    area: "650 m²",
-    year: "2024",
-    coverImage: "/assets/projects/project-06/cover.jpg",
-    images: [
-      "/assets/projects/project-06/01.jpg",
-      "/assets/projects/project-06/02.jpg",
-      "/assets/projects/project-06/03.jpg",
-      "/assets/projects/project-06/04.jpg",
-    ],
-    description:
-      "An elegant family villa with classical proportions and contemporary interiors. Custom millwork, smart home integration, and private landscaping.",
-    category: "residential",
+    "id": "project-6",
+    "title": "شقه حدائق الاهرام حورس",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/شقه حدائق الاهرام حورس/WhatsApp Image 2026-07-25 at 12.35.37 PM.jpeg",
+      "/assets/projects/شقه حدائق الاهرام حورس/WhatsApp Image 2026-07-25 at 12.35.38 PM.jpeg",
+      "/assets/projects/شقه حدائق الاهرام حورس/WhatsApp Image 2026-07-25 at 12.35.39 PM.jpeg",
+      "/assets/projects/شقه حدائق الاهرام حورس/WhatsApp Image 2026-07-25 at 12.35.42 PM.jpeg"
+    ]
   },
+  {
+    "id": "project-7",
+    "title": "عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.28 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.29 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.29 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.29 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.30 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.30 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.30 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.31 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.31 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.31 PM (3).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.31 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.32 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.32 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.32 PM (3).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.32 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.33 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.33 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.33 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.34 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.34 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.34 PM (3).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.34 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.35 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.35 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.35 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.36 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.36 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.36 PM (3).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.36 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.37 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.37 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.37 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.38 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.38 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.38 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.39 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.39 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.40 PM (1).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.40 PM (2).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.40 PM (3).jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.40 PM.jpeg",
+      "/assets/projects/عماره م احمد نبوت بيت الوطن التجمع الخامس شركة اونكريت/WhatsApp Image 2026-07-25 at 12.43.41 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-8",
+    "title": "فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.43 PM.jpeg",
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.44 PM (1).jpeg",
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.44 PM.jpeg",
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.45 PM (1).jpeg",
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.45 PM.jpeg",
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.46 PM.jpeg",
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.47 PM (1).jpeg",
+      "/assets/projects/فيلا الحاج خالد حمزه بالتعاون مع شركة فالي اوف ارت التجمع الخامس التسعين/WhatsApp Image 2026-07-25 at 12.35.47 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-9",
+    "title": "فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.22 PM (1).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.22 PM.jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.23 PM (1).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.23 PM (2).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.23 PM.jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.24 PM (1).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.24 PM (2).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.24 PM (3).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.24 PM.jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.25 PM (1).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.25 PM (2).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.25 PM (3).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.25 PM.jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.26 PM (1).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.26 PM (2).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.26 PM (3).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.26 PM.jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.27 PM (1).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.27 PM (2).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.27 PM (3).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.27 PM.jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.28 PM (1).jpeg",
+      "/assets/projects/فيلا الشروق كمبوند ماي فير بالتعاون مع شركة اركونست/WhatsApp Image 2026-07-25 at 12.43.28 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-10",
+    "title": "قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.48 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.48 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.49 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.49 PM (2).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.49 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.50 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.50 PM (2).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.50 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.51 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.51 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.52 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.52 PM (2).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.52 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.53 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.53 PM (2).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.53 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.54 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.54 PM (2).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.54 PM (3).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.54 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.55 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.55 PM (2).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.55 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.56 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.56 PM (2).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.56 PM.jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.57 PM (1).jpeg",
+      "/assets/projects/قصر التجمع الخامس رفع كفاءة النرجس 2 بالتعاون مع شركة سامكو هولدينج/WhatsApp Image 2026-07-25 at 12.43.57 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-11",
+    "title": "مجموعه فلل التجمع بالتعاون مع شركة Vally of art",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/مجموعه فلل التجمع بالتعاون مع شركة Vally of art/WhatsApp Image 2026-07-25 at 12.43.14 PM.jpeg",
+      "/assets/projects/مجموعه فلل التجمع بالتعاون مع شركة Vally of art/WhatsApp Image 2026-07-25 at 12.43.15 PM (1).jpeg",
+      "/assets/projects/مجموعه فلل التجمع بالتعاون مع شركة Vally of art/WhatsApp Image 2026-07-25 at 12.43.15 PM (2).jpeg",
+      "/assets/projects/مجموعه فلل التجمع بالتعاون مع شركة Vally of art/WhatsApp Image 2026-07-25 at 12.43.15 PM.jpeg",
+      "/assets/projects/مجموعه فلل التجمع بالتعاون مع شركة Vally of art/WhatsApp Image 2026-07-25 at 12.43.16 PM (1).jpeg",
+      "/assets/projects/مجموعه فلل التجمع بالتعاون مع شركة Vally of art/WhatsApp Image 2026-07-25 at 12.43.16 PM (2).jpeg",
+      "/assets/projects/مجموعه فلل التجمع بالتعاون مع شركة Vally of art/WhatsApp Image 2026-07-25 at 12.43.16 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-12",
+    "title": "مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.35.59 PM (1).jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.35.59 PM.jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.36.00 PM.jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.36.01 PM (1).jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.36.01 PM.jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.43.08 PM.jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.43.09 PM (1).jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.43.09 PM.jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.43.10 PM.jpeg",
+      "/assets/projects/مداخل زهراء مدينة نصر بالتعاون مع شركة اونكريت مشروع جاردينيا 2/WhatsApp Image 2026-07-25 at 12.43.11 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-13",
+    "title": "مدخل استانلى اسكندريه",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.50 PM.jpeg",
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.51 PM (1).jpeg",
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.51 PM.jpeg",
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.52 PM (1).jpeg",
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.52 PM.jpeg",
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.53 PM (1).jpeg",
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.53 PM.jpeg",
+      "/assets/projects/مدخل استانلى اسكندريه/WhatsApp Image 2026-07-25 at 12.35.54 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-14",
+    "title": "موقع ابراج الزهراء",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/موقع ابراج الزهراء/WhatsApp Image 2026-07-25 at 12.35.22 PM.jpeg",
+      "/assets/projects/موقع ابراج الزهراء/WhatsApp Image 2026-07-25 at 12.35.24 PM (1).jpeg",
+      "/assets/projects/موقع ابراج الزهراء/WhatsApp Image 2026-07-25 at 12.35.24 PM.jpeg",
+      "/assets/projects/موقع ابراج الزهراء/WhatsApp Image 2026-07-25 at 12.35.25 PM.jpeg",
+      "/assets/projects/موقع ابراج الزهراء/WhatsApp Image 2026-07-25 at 12.35.26 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-15",
+    "title": "موقع الحى السكنى R5بالتعاون مع شركة مراسم",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/موقع الحى السكنى R5بالتعاون مع شركة مراسم/WhatsApp Image 2026-07-25 at 12.35.54 PM.jpeg",
+      "/assets/projects/موقع الحى السكنى R5بالتعاون مع شركة مراسم/WhatsApp Image 2026-07-25 at 12.35.55 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-16",
+    "title": "موقع اويست مع شركة البحر الاحمر",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.17 PM (1).jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.17 PM (2).jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.17 PM.jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.18 PM (1).jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.18 PM (2).jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.18 PM (3).jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.18 PM.jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.19 PM (1).jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.19 PM (2).jpeg",
+      "/assets/projects/موقع اويست مع شركة البحر الاحمر/WhatsApp Image 2026-07-25 at 12.43.19 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-17",
+    "title": "موقع هايد بارك",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.17 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.17 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.17 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.18 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.18 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.18 PM (3).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.18 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.19 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.19 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.19 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.22 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.22 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.23 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.23 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.23 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.24 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.24 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.24 PM (3).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.24 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.25 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.25 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.25 PM (3).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.25 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.26 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.26 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.26 PM (3).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.26 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.27 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.27 PM (2).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.27 PM (3).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.27 PM.jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.28 PM (1).jpeg",
+      "/assets/projects/موقع هايد بارك/WhatsApp Image 2026-07-25 at 12.43.28 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-18",
+    "title": "واجهه بازار مينا للبرديات الهرم",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/واجهه بازار مينا للبرديات الهرم/WhatsApp Image 2026-07-25 at 12.35.32 PM.jpeg",
+      "/assets/projects/واجهه بازار مينا للبرديات الهرم/WhatsApp Image 2026-07-25 at 12.35.33 PM (1).jpeg",
+      "/assets/projects/واجهه بازار مينا للبرديات الهرم/WhatsApp Image 2026-07-25 at 12.35.33 PM.jpeg",
+      "/assets/projects/واجهه بازار مينا للبرديات الهرم/WhatsApp Image 2026-07-25 at 12.35.34 PM.jpeg"
+    ]
+  },
+  {
+    "id": "project-19",
+    "title": "ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ",
+    "location": "",
+    "type": "تشطيبات وتصميم",
+    "area": "",
+    "images": [
+      "/assets/projects/ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ/WhatsApp Image 2026-07-25 at 12.35.27 PM (1).jpeg",
+      "/assets/projects/ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ/WhatsApp Image 2026-07-25 at 12.35.27 PM.jpeg",
+      "/assets/projects/ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ/WhatsApp Image 2026-07-25 at 12.35.28 PM.jpeg",
+      "/assets/projects/ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ/WhatsApp Image 2026-07-25 at 12.35.29 PM (1).jpeg",
+      "/assets/projects/ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ/WhatsApp Image 2026-07-25 at 12.35.29 PM.jpeg",
+      "/assets/projects/ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ/WhatsApp Image 2026-07-25 at 12.35.30 PM.jpeg",
+      "/assets/projects/ودا تصميم مدخل جاردينيا 2 زهراء مدينه نصر بالتعاون مع شركة اونكريت باعتلك صور التنفيذ/WhatsApp Image 2026-07-25 at 12.35.31 PM.jpeg"
+    ]
+  }
 ];
 
 // ── FAQ ───────────────────────────────────────────────────
 export const FAQ_ITEMS: FAQItem[] = [
   {
-    question: "What areas do you operate in?",
-    answer:
-      "We operate across all of Greater Cairo and surrounding regions, including New Cairo, Heliopolis, Maadi, Zamalek, 6th of October, Sheikh Zayed, and beyond. Contact us to confirm your location.",
+    question: "ما هي مدة تنفيذ مشروع التشطيب؟",
+    answer: "تختلف المدة حسب مساحة وتفاصيل المشروع، ولكن في المتوسط تتراوح بين 3 إلى 6 أشهر، مع التزامنا التام بالجدول الزمني المتفق عليه."
   },
   {
-    question: "How long does a standard finishing project take?",
-    answer:
-      "Project duration depends on the unit size and scope. A typical apartment (150–250 m²) takes 6–10 weeks from execution start. We provide a precise timeline before contract signing and commit to it.",
+    question: "هل تقدمون خدمات التصميم فقط؟",
+    answer: "نعم، نقدم خدمات التصميم الداخلي والمعماري بشكل منفصل، ولكننا نوصي بتنفيذ التصميم من خلال فريقنا لضمان تطابق النتيجة النهائية مع التصميم."
   },
   {
-    question: "What is the Cost Plus system?",
-    answer:
-      "In the Cost Plus model, you purchase materials directly in your name from our approved suppliers — ensuring you know exactly what you're paying for. We manage all execution, supervision, and quality control on your behalf. This provides maximum transparency and material ownership.",
+    question: "ما هو نظام الكوست بلس (Cost Plus)؟",
+    answer: "هو نظام شفاف حيث يقوم العميل بدفع التكلفة الفعلية للمواد والعمالة، مع إضافة نسبة مئوية متفق عليها كأتعاب إدارة وإشراف لشركتنا."
   },
   {
-    question: "Do you provide a warranty?",
-    answer:
-      "Yes. All our packages include a minimum 1-year warranty. Our Gold and Platinum packages include 2–3 year warranties, and our VIP package includes a comprehensive 5-year warranty covering materials and workmanship.",
-  },
-  {
-    question: "Can I see 3D designs before execution starts?",
-    answer:
-      "Absolutely. Our Gold, Platinum, and VIP packages include 3D design visualization before any execution begins. This ensures you can fully review and approve your space before a single wall is touched.",
-  },
-  {
-    question: "What is the payment structure?",
-    answer:
-      "We follow a milestone-based payment system linked to project progress phases. Payments are never taken in advance of work. You pay as each phase is completed and signed off — full transparency, no surprises.",
-  },
-  {
-    question: "Do you work on commercial and administrative projects?",
-    answer:
-      "Yes. In addition to residential units, we specialize in commercial spaces (clinics, showrooms, restaurants), administrative offices, and corporate headquarters — all delivered to the same premium standard.",
-  },
-  {
-    question: "How do I get started?",
-    answer:
-      "Simply contact us via phone or WhatsApp. Our team will schedule a free site inspection within 48 hours, after which we'll prepare a detailed design proposal and financial offer tailored to your needs.",
-  },
+    question: "هل تقدمون ضماناً على الأعمال المنفذة؟",
+    answer: "نعم، نقدم ضماناً كاملاً على جميع أعمال التشطيبات والتأسيس، لضمان راحة بال عملائنا وجودة العمل على المدى الطويل."
+  }
 ];
 
-// ── Stats ─────────────────────────────────────────────────
+
 export const STATS = [
   { number: "150+", label: "Projects Delivered" },
   { number: "98%", label: "Client Satisfaction" },
