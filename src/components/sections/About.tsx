@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { STATS, COMPANY_DESCRIPTION_AR } from "@/lib/constants";
@@ -74,16 +75,16 @@ export function About() {
                   minHeight: "400px",
                 }}
               >
-                <div className="text-center">
-                  <div
-                    className="text-5xl font-black mb-4 text-gradient-gold"
-                    style={{ fontFamily: "var(--font-accent)" }}
-                  >
-                    PG
-                  </div>
-                  <p className="text-xs tracking-widest uppercase" style={{ color: "var(--color-dark-gray)" }}>
-                    Pixels Group
-                  </p>
+                <div className="text-center px-6">
+                  <Image
+                    src="/assets/logo/logo.png"
+                    alt="Pixels Group Logo"
+                    width={220}
+                    height={220}
+                    className="mx-auto object-contain"
+                    style={{ filter: "drop-shadow(0 0 24px rgba(208,151,52,0.25))" }}
+                    priority
+                  />
                 </div>
               </div>
               {/* Gold corners */}
