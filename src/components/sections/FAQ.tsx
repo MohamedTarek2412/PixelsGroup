@@ -96,7 +96,7 @@ export function FAQ() {
                             fontFamily: "var(--font-primary)",
                           }}
                         >
-                          {item.questionAr}
+                          {item.question}
                         </span>
                         <motion.div
                           className="shrink-0 w-7 h-7 rounded-sm flex items-center justify-center me-auto"
@@ -152,7 +152,7 @@ export function FAQ() {
                             className="pb-6 leading-relaxed text-sm"
                             style={{ color: "var(--text-secondary)" }}
                           >
-                            {item.answerAr}
+                            {item.answer}
                           </p>
                         </motion.dd>
                       )}
