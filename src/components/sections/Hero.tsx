@@ -246,7 +246,7 @@ export function Hero() {
         aria-hidden="true"
         style={{
           borderTop: "1px solid rgba(208,151,52,0.2)",
-          borderLeft: "1px solid rgba(208,151,52,0.2)",
+          borderRight: "1px solid rgba(208,151,52,0.2)",
         }}
       />
       <div
@@ -254,7 +254,7 @@ export function Hero() {
         aria-hidden="true"
         style={{
           borderTop: "1px solid rgba(208,151,52,0.2)",
-          borderRight: "1px solid rgba(208,151,52,0.2)",
+          borderLeft: "1px solid rgba(208,151,52,0.2)",
         }}
       />
     </section>
