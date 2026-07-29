@@ -80,8 +80,8 @@ export function Navbar() {
               className="flex items-center gap-3 no-underline group"
               aria-label="الرئيسية"
             >
-              <div className="relative w-32 h-12 flex items-center">
-                <Image src="/assets/logo/logo.png" alt={COMPANY_NAME} fill sizes="128px" className="object-contain object-right" />
+              <div className="relative w-48 sm:w-60 h-16 sm:h-20 flex items-center">
+                <Image src="/assets/logo/logo.png" alt={COMPANY_NAME} fill sizes="240px" className="object-contain object-right" />
               </div>
             </Link>
 

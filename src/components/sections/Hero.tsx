@@ -130,12 +130,12 @@ export function Hero() {
           className="text-center"
           style={{ fontFamily: "var(--font-cairo, var(--font-primary))" }}
         >
-          <span className="block" style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", fontWeight: 800, lineHeight: 1.2 }}>
+          <span className="block" style={{ fontSize: "clamp(2rem, 8vw, 5.5rem)", fontWeight: 800, lineHeight: 1.4 }}>
             نُهندس لك
           </span>
           <span
             className="block text-gradient-gold"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", fontWeight: 800, lineHeight: 1.2 }}
+            style={{ fontSize: "clamp(2rem, 8vw, 5.5rem)", fontWeight: 800, lineHeight: 1.4 }}
           >
             مساحتك المثالية
           </span>

@@ -166,7 +166,7 @@ export function Packages() {
                       </div>
 
                       {/* Categories Grid */}
-                      <div className="grid grid-cols-2 gap-x-8 gap-y-10">
+                      <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-8 gap-y-8">
                         {pkg.categories.map((cat, idx) => (
                           <div key={idx}>
                             <h4
@@ -236,12 +236,12 @@ export function Packages() {
                 {/* Header (Clickable) */}
                 <button
                   onClick={() => setActiveTab(isActive ? "" : pkg.id)}
-                  className="w-full text-right p-5 flex items-center justify-between bg-transparent border-none cursor-pointer"
+                  className="w-full text-right p-4 flex items-center justify-between bg-transparent border-none cursor-pointer gap-3"
                 >
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <h3
-                        className="text-lg font-bold"
+                        className="text-base font-bold leading-relaxed"
                         style={{
                           color: isActive ? "var(--color-gold-light)" : "var(--color-white)",
                           fontFamily: "var(--font-primary)",
@@ -262,8 +262,8 @@ export function Packages() {
                         </span>
                       )}
                     </div>
-                    <div className="flex items-end gap-1 mt-1">
-                      <span className="text-xl font-black leading-none" style={{ color: "var(--color-white)", fontFamily: "var(--font-accent)" }}>
+                    <div className="flex flex-wrap items-end gap-1 mt-2">
+                      <span className="text-lg font-black leading-relaxed" style={{ color: "var(--color-white)", fontFamily: "var(--font-accent)" }}>
                         {pkg.price}
                       </span>
                       <span className="text-[10px] pb-0.5" style={{ color: "var(--color-dark-gray)", fontFamily: "var(--font-primary)" }}>
@@ -294,7 +294,7 @@ export function Packages() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-5 pt-0 border-t border-[rgba(235,235,234,0.08)] mt-2">
+                      <div className="px-4 pb-4 pt-2 border-t border-[rgba(235,235,234,0.08)] mt-1">
                         {/* Highlights */}
                         <div className="flex flex-wrap gap-2 my-4">
                           {pkg.highlights.map((h, idx) => (

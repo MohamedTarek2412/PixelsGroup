@@ -1263,8 +1263,8 @@ export const FAQ_ITEMS: FAQItem[] = [
 
 
 export const STATS = [
-  { number: "150+", label: "Projects Delivered" },
-  { number: "98%", label: "Client Satisfaction" },
-  { number: "7+", label: "Years Experience" },
-  { number: "50+", label: "Team Members" },
+  { number: "150+", label: "مشروع تم تسليمه" },
+  { number: "98%", label: "رضا العملاء" },
+  { number: "7+", label: "سنوات خبرة" },
+  { number: "50+", label: "فريق العمل" },
 ];

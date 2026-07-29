@@ -128,7 +128,7 @@ h5,
 h6 {
   font-family: var(--font-primary);
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.5;
   letter-spacing: 0;
   color: var(--color-white);
 }
@@ -137,7 +137,7 @@ h1 {
   font-size: clamp(2.5rem, 7vw, 6rem);
   font-weight: 800;
   letter-spacing: 0;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 h2 {
@@ -369,10 +369,10 @@ p {
 /* ── Number Counter ── */
 .counter-number {
   font-family: var(--font-accent);
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
   font-weight: 700;
   color: var(--color-gold);
-  line-height: 1;
+  line-height: 1.2;
 }
 
 /* ── Cursor (Magnetic) ── */

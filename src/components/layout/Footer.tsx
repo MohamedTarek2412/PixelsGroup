@@ -29,8 +29,8 @@ export function Footer() {
               className="flex items-center gap-3 no-underline group"
               aria-label={`${COMPANY_NAME} - الصفحة الرئيسية`}
             >
-              <div className="relative w-40 h-16 flex items-center">
-                <Image src="/assets/logo/logo.png" alt={COMPANY_NAME} fill sizes="160px" className="object-contain object-right" />
+              <div className="relative w-56 sm:w-72 h-20 sm:h-28 flex items-center">
+                <Image src="/assets/logo/logo.png" alt={COMPANY_NAME} fill sizes="288px" className="object-contain object-right" />
               </div>
             </Link>
 
