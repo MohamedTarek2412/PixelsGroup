@@ -88,11 +88,11 @@ export function About() {
               </div>
               {/* Gold corners */}
               <div
-                className="absolute top-4 end-4 w-10 h-10 pointer-events-none"
+                className="absolute -top-3 -end-3 sm:-top-4 sm:-end-4 w-10 h-10 pointer-events-none"
                 style={{ borderTop: "2px solid var(--color-gold)", borderLeft: "2px solid var(--color-gold)" }}
               />
               <div
-                className="absolute bottom-4 start-4 w-10 h-10 pointer-events-none"
+                className="absolute -bottom-3 -start-3 sm:-bottom-4 sm:-start-4 w-10 h-10 pointer-events-none"
                 style={{ borderBottom: "2px solid var(--color-gold)", borderRight: "2px solid var(--color-gold)" }}
               />
             </div>
