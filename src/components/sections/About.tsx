@@ -75,17 +75,14 @@ export function About() {
                   minHeight: "400px",
                 }}
               >
-                <div className="text-center px-6">
-                  <Image
-                    src="/assets/logo/logo.png"
-                    alt="Pixels Group Logo"
-                    width={220}
-                    height={220}
-                    className="mx-auto object-contain"
-                    style={{ filter: "drop-shadow(0 0 24px rgba(208,151,52,0.25))" }}
-                    priority
-                  />
-                </div>
+                <Image
+                  src="/assets/banners/ChatGPT Image Jul 18, 2026, 01_59_57 AM.png"
+                  alt="Pixels Group — من نحن"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
               </div>
               {/* Gold corners */}
               <div
