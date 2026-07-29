@@ -69,7 +69,7 @@ export function Packages() {
                         fontFamily: "var(--font-primary)",
                       }}
                     >
-                      {pkg.nameAr}
+                      {pkg.name}
                     </h3>
                   {pkg.id === "silver" && <ShieldCheck size={20} style={{ color: "var(--color-dark-gray)" }} />}
                   {pkg.id === "gold" && <Star size={20} style={{ color: "var(--color-gold)" }} />}
@@ -118,7 +118,7 @@ export function Packages() {
                                 className="text-2xl font-black tracking-wide uppercase"
                                 style={{ color: "var(--color-gold)", fontFamily: "var(--font-primary)" }}
                               >
-                                {pkg.nameAr}
+                                {pkg.name}
                               </h2>
                             {pkg.badge && (
                               <span
@@ -248,7 +248,7 @@ export function Packages() {
                           fontFamily: "var(--font-primary)",
                         }}
                       >
-                        {pkg.nameAr}
+                        {pkg.name}
                       </h3>
                       {pkg.badge && (
                         <span
