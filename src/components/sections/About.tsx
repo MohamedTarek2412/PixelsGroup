@@ -122,13 +122,13 @@ export function About() {
           variants={staggerContainer}
           initial="hidden"
           animate={statsInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10 mt-16 sm:mt-20 lg:mt-24"
         >
           {STATS.map((stat) => (
             <motion.div
               key={stat.label}
               variants={fadeInUp}
-              className="flex flex-col items-center text-center p-4 sm:p-6 rounded-sm"
+              className="flex flex-col items-center text-center p-6 sm:p-8 lg:p-10 rounded-sm"
               style={{
                 background: "rgba(208,151,52,0.04)",
                 border: "1px solid rgba(208,151,52,0.1)",
@@ -146,7 +146,7 @@ export function About() {
                 {stat.number}
               </span>
               <span
-                className="text-xs sm:text-sm font-medium mt-2 leading-snug"
+                className="text-sm sm:text-base font-semibold mt-4 leading-relaxed"
                 style={{ color: "var(--text-secondary)" }}
               >
                 {stat.label}
@@ -156,7 +156,7 @@ export function About() {
         </motion.div>
 
         {/* ───── Vision & Mission ───── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mt-12 lg:mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mt-20 sm:mt-24 lg:mt-32">
           {[
             {
               tag: "رؤيتنا",
@@ -172,23 +172,23 @@ export function About() {
             <ScrollReveal
               key={item.tag}
               delay={i * 0.15}
-              className="p-5 sm:p-7 rounded-sm card-gold-top"
+              className="p-8 sm:p-10 lg:p-12 rounded-sm card-gold-top"
               style={{
                 background: "rgba(26,27,28,0.8)",
                 border: "1px solid rgba(235,235,234,0.07)",
               } as React.CSSProperties}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-6">
                 <span
-                  className="text-2xl sm:text-3xl shrink-0"
+                  className="text-3xl sm:text-4xl shrink-0 mt-1"
                   style={{ color: "var(--color-gold)" }}
                   aria-hidden="true"
                 >
                   {item.icon}
                 </span>
                 <div className="min-w-0">
-                  <span className="badge-gold mb-3 inline-block">{item.tag}</span>
-                  <p className="text-sm sm:text-base leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                  <span className="badge-gold mb-5 inline-block px-4 py-1.5">{item.tag}</span>
+                  <p className="text-base sm:text-lg leading-loose" style={{ color: "var(--text-secondary)" }}>
                     {item.text}
                   </p>
                 </div>

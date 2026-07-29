@@ -166,11 +166,11 @@ export function Packages() {
                       </div>
 
                       {/* Categories Grid */}
-                      <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-8 gap-y-8">
+                      <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-12 gap-y-12">
                         {pkg.categories.map((cat, idx) => (
                           <div key={idx}>
                             <h4
-                              className="text-sm font-bold mb-4 pb-2 border-b"
+                              className="text-base font-bold mb-5 pb-3 border-b"
                               style={{
                                 color: "var(--color-gold-light)",
                                 borderColor: "rgba(208,151,52,0.2)",
@@ -178,9 +178,9 @@ export function Packages() {
                             >
                               {cat.categoryAr}
                             </h4>
-                            <ul className="flex flex-col gap-3 list-none">
+                            <ul className="flex flex-col gap-4 list-none">
                               {cat.items.map((item, itemIdx) => (
-                                <li key={itemIdx} className="flex items-start gap-2.5">
+                                <li key={itemIdx} className="flex items-start gap-3">
                                   <div
                                     className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0"
                                     style={{ background: "rgba(208,151,52,0.6)" }}
@@ -218,7 +218,7 @@ export function Packages() {
         </div>
 
         {/* Mobile Layout (Accordion style) */}
-        <div className="lg:hidden flex flex-col gap-4">
+        <div className="lg:hidden flex flex-col gap-6">
           {PACKAGES.map((pkg) => {
             const isActive = activeTab === pkg.id;
 
@@ -310,11 +310,11 @@ export function Packages() {
                         </div>
 
                         {/* Categories List */}
-                        <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-8 mt-6">
                           {pkg.categories.map((cat, idx) => (
                             <div key={idx}>
                               <h4
-                                className="text-xs font-bold mb-3 pb-1 border-b"
+                                className="text-sm font-bold mb-4 pb-2 border-b"
                                 style={{
                                   color: "var(--color-gold-light)",
                                   borderColor: "rgba(208,151,52,0.2)",
@@ -322,9 +322,9 @@ export function Packages() {
                               >
                                 {cat.categoryAr}
                               </h4>
-                              <ul className="flex flex-col gap-2 list-none">
+                              <ul className="flex flex-col gap-4 list-none">
                                 {cat.items.map((item, itemIdx) => (
-                                  <li key={itemIdx} className="flex items-start gap-2">
+                                  <li key={itemIdx} className="flex items-start gap-3">
                                     <div
                                       className="w-1 h-1 rounded-full mt-1.5 shrink-0"
                                       style={{ background: "rgba(208,151,52,0.6)" }}
